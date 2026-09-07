@@ -14,11 +14,11 @@ jobs:
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v4
-      - name: Reconstruct and verify CI artifact
+      - name: Download and verify exact CI artifact
         shell: bash
         run: |
           set -euo pipefail
-          cat payload/part*.b64 | base64 --decode > "$RUNNER_TEMP/site.zip"
+          curl --fail --location --silent --show-error 'https://sdmntprnorthcentralus.oaiusercontent.com/files/00000000-9b54-822f-b906-6e2b686b9588/raw?se=2026-09-07T19%3A29%3A53Z&sp=r&sv=2026-02-06&sr=b&scid=f7c11342-533e-5916-9263-81287df18c96&skoid=bbd22fc4-f881-4ea4-b2f3-c12033cf6a8b&sktid=a48cca56-e6da-484e-a814-9c849652bcb3&skt=2026-09-06T21%3A22%3A57Z&ske=2026-09-07T21%3A22%3A57Z&sks=b&skv=2026-02-06&sig=Hkis7YzRQVQkm/byVfCJMSmNAyh5o3s2tRgpJja3Tdw%3D' --output "$RUNNER_TEMP/site.zip"
           echo '9f5fb490e90e819220dba924859b35708108ffcd26bad3f960ae39373db6ebf2  '"$RUNNER_TEMP/site.zip" | sha256sum --check --strict
           mkdir "$RUNNER_TEMP/site"
           unzip -q "$RUNNER_TEMP/site.zip" -d "$RUNNER_TEMP/site"
