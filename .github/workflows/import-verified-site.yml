@@ -1,0 +1,58 @@
+name: Import verified Website Chat Bot artifact
+
+on:
+  push:
+    branches: [main]
+  workflow_dispatch:
+
+permissions:
+  contents: write
+
+jobs:
+  import:
+    if: github.actor != 'github-actions[bot]'
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - name: Reconstruct and verify CI artifact
+        shell: bash
+        run: |
+          set -euo pipefail
+          cat payload/part*.b64 | base64 --decode > "$RUNNER_TEMP/site.zip"
+          echo '9f5fb490e90e819220dba924859b35708108ffcd26bad3f960ae39373db6ebf2  '"$RUNNER_TEMP/site.zip" | sha256sum --check --strict
+          mkdir "$RUNNER_TEMP/site"
+          unzip -q "$RUNNER_TEMP/site.zip" -d "$RUNNER_TEMP/site"
+          cat > "$RUNNER_TEMP/expected.txt" <<'EOF'
+          ar/index.html
+          chat-bot.js
+          de/index.html
+          en/index.html
+          es-419/index.html
+          fr/index.html
+          hi/index.html
+          id/index.html
+          index.html
+          ja/index.html
+          privacy.html
+          pt-BR/index.html
+          robots.txt
+          standard-setup.html
+          support.html
+          EOF
+          (cd "$RUNNER_TEMP/site" && find . -type f -printf '%P\n' | LC_ALL=C sort) > "$RUNNER_TEMP/actual.txt"
+          LC_ALL=C sort -o "$RUNNER_TEMP/expected.txt" "$RUNNER_TEMP/expected.txt"
+          diff -u "$RUNNER_TEMP/expected.txt" "$RUNNER_TEMP/actual.txt"
+      - name: Commit exact verified public files
+        shell: bash
+        run: |
+          set -euo pipefail
+          cp -a "$RUNNER_TEMP/site/." .
+          git add -- ar chat-bot.js de en es-419 fr hi id index.html ja privacy.html pt-BR robots.txt standard-setup.html support.html
+          git config user.name 'github-actions[bot]'
+          git config user.email '41898282+github-actions[bot]@users.noreply.github.com'
+          if git diff --cached --quiet; then
+            echo 'Verified artifact already present.'
+            exit 0
+          fi
+          git commit -m 'Publish exact verified Website Chat Bot build'
+          git push
