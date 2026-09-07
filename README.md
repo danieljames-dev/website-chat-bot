@@ -16,9 +16,18 @@ It answers from the facts you provide. When it cannot match a question safely, i
 
 The setup tool does not send the business details you enter to a server.
 
-## Delivery
+## Verified delivery
 
-A versioned download kit is being verified for anonymous delivery. Checkout remains disabled until that delivery path passes the buyer-observable verification gate.
+The versioned **Website Chat Bot Standard v1.0.0** delivery kit is publicly available here:
+
+- [Release page](https://github.com/danieljames-dev/website-chat-bot/releases/tag/standard-v1.0.0)
+- [Download website-chat-bot-standard.zip](https://github.com/danieljames-dev/website-chat-bot/releases/download/standard-v1.0.0/website-chat-bot-standard.zip)
+
+The release was anonymously re-downloaded and all 15 buyer files were verified byte-for-byte against the content identities bound to the prior successful Chromium behavior test.
+
+After downloading, unzip the kit and open `standard-setup.html` in a modern browser to build your configuration.
+
+**Checkout is not active yet.** Delivery is verified; payment activation is a separate controlled gate.
 
 ## 14-day functionality guarantee
 
