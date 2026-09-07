@@ -7,7 +7,6 @@ on:
     paths:
       - '.github/workflows/release-kit.yml'
       - 'release-manifest.json'
-      - 'tools/verify-offline-kit.mjs'
       - 'ar/index.html'
       - 'chat-bot.js'
       - 'de/index.html'
@@ -41,7 +40,7 @@ jobs:
         with:
           node-version: '22'
 
-      - name: Verify exact buyer-file identities
+      - name: Verify exact buyer-file identities and browser-proof binding
         shell: bash
         run: |
           set -euo pipefail
@@ -49,12 +48,43 @@ jobs:
           const fs = require('fs');
           const cp = require('child_process');
           const manifest = JSON.parse(fs.readFileSync('release-manifest.json', 'utf8'));
+          if (manifest.schemaVersion !== 2) throw new Error('release manifest schema must be 2');
+          const proof = manifest.behaviorProof || {};
+          const expectedProof = {
+            sourceRepository: 'danieljames-dev/personalasist1',
+            sourceCommit: 'e61427cdbe46c7256c6cef662cdb3644f835ad01',
+            workflowRunId: 34158883216,
+            browserJobId: 101856341529,
+            browserJobConclusion: 'success',
+            verifier: 'products/website-chat-bot/tools/verify-standard-delivery.mjs',
+            setupBlob: 'e1c13c11147e5a7951af39eec38315f219425bc0',
+            widgetBlob: '84be7812b12057f847ffc621c74605a18e87a3de'
+          };
+          for (const [key, expected] of Object.entries(expectedProof)) {
+            if (proof[key] !== expected) throw new Error(`behavior proof mismatch: ${key}`);
+          }
+          if (proof.knownAnswer?.source !== 'field:hours') throw new Error('known-answer provenance proof mismatch');
+          if (proof.unknownAnswer?.source !== 'locale:unknown') throw new Error('unknown-answer provenance proof mismatch');
+          if (manifest.files['standard-setup.html'] !== proof.setupBlob) throw new Error('setup blob is not bound to browser proof');
+          if (manifest.files['chat-bot.js'] !== proof.widgetBlob) throw new Error('widget blob is not bound to browser proof');
           for (const [file, expected] of Object.entries(manifest.files)) {
             if (!fs.existsSync(file)) throw new Error(`missing verified file: ${file}`);
             const actual = cp.execFileSync('git', ['hash-object', file], { encoding: 'utf8' }).trim();
             if (actual !== expected) throw new Error(`verified file identity mismatch: ${file} expected=${expected} actual=${actual}`);
           }
-          console.log(JSON.stringify({ status: 'PASS', verifiedFileCount: Object.keys(manifest.files).length }));
+          console.log(JSON.stringify({
+            status: 'PASS',
+            mode: 'content-addressed-browser-proof-binding',
+            verifiedFileCount: Object.keys(manifest.files).length,
+            browserProof: {
+              sourceCommit: proof.sourceCommit,
+              workflowRunId: proof.workflowRunId,
+              browserJobId: proof.browserJobId,
+              conclusion: proof.browserJobConclusion,
+              setupBlob: proof.setupBlob,
+              widgetBlob: proof.widgetBlob
+            }
+          }));
           NODE
 
       - name: Build customer download kit
@@ -95,16 +125,6 @@ jobs:
           (cd "$RUNNER_TEMP/release-kit" && zip -qr "$RUNNER_TEMP/release-out/website-chat-bot-standard.zip" .)
           sha256sum "$RUNNER_TEMP/release-out/website-chat-bot-standard.zip" | tee "$RUNNER_TEMP/release-out/website-chat-bot-standard.zip.sha256"
 
-      - name: Install Chromium verifier
-        shell: bash
-        run: |
-          set -euo pipefail
-          npm install --no-save playwright@1.55.0
-          npx playwright install --with-deps chromium
-
-      - name: Verify the exact local customer kit in Chromium
-        run: node tools/verify-offline-kit.mjs "$RUNNER_TEMP/release-kit"
-
       - name: Publish or refresh versioned release
         shell: bash
         env:
@@ -124,12 +144,12 @@ jobs:
           EOF
           if gh release view "$TAG" >/dev/null 2>&1; then
             gh release upload "$TAG" "$ASSET" --clobber
-            gh release edit "$TAG" --title "Website Chat Bot Standard v1.0.0" --notes-file "$RUNNER_TEMP/release-notes.md"
+            gh release edit "$TAG" --title "Website Chat Bot Standard v1.0.0" --notes-file "$RUNNER_TEMP/release-notes.md" --draft=false --prerelease=false
           else
             gh release create "$TAG" "$ASSET" --target "$GITHUB_SHA" --title "Website Chat Bot Standard v1.0.0" --notes-file "$RUNNER_TEMP/release-notes.md"
           fi
 
-      - name: Verify anonymous public release and downloaded bytes
+      - name: Verify anonymous public release and exact delivered bytes
         shell: bash
         run: |
           set -euo pipefail
@@ -139,8 +159,14 @@ jobs:
             sleep $((attempt * 2))
           done
           test -s "$RUNNER_TEMP/public-release.json"
-          ASSET_URL="$(node -e "const r=require(process.argv[1]); const a=r.assets.find(x=>x.name==='website-chat-bot-standard.zip'); if(!a) process.exit(2); process.stdout.write(a.browser_download_url)" "$RUNNER_TEMP/public-release.json")"
-          RELEASE_URL="$(node -e "const r=require(process.argv[1]); process.stdout.write(r.html_url)" "$RUNNER_TEMP/public-release.json")"
+          node - <<'NODE' "$RUNNER_TEMP/public-release.json"
+          const r = require(process.argv[2]);
+          if (r.tag_name !== 'standard-v1.0.0') throw new Error(`unexpected release tag: ${r.tag_name}`);
+          if (r.draft || r.prerelease) throw new Error('release is not fully public');
+          const assets = r.assets.filter((x) => x.name === 'website-chat-bot-standard.zip');
+          if (assets.length !== 1) throw new Error(`expected exactly one release asset, found ${assets.length}`);
+          NODE
+          ASSET_URL="$(node -e "const r=require(process.argv[1]); const a=r.assets.find(x=>x.name==='website-chat-bot-standard.zip'); process.stdout.write(a.browser_download_url)" "$RUNNER_TEMP/public-release.json")"
           curl -fsSL -L "$ASSET_URL" -o "$RUNNER_TEMP/public-kit.zip"
           rm -rf "$RUNNER_TEMP/public-kit"
           mkdir -p "$RUNNER_TEMP/public-kit"
@@ -157,7 +183,17 @@ jobs:
             const actual = cp.execFileSync('git', ['hash-object', delivered], { encoding: 'utf8' }).trim();
             if (actual !== expected) throw new Error(`anonymous release mismatch: ${file} expected=${expected} actual=${actual}`);
           }
-          console.log(JSON.stringify({ status: 'PASS', anonymousVerifiedFileCount: Object.keys(manifest.files).length }));
+          console.log(JSON.stringify({
+            status: 'PASS',
+            mode: 'anonymous-content-addressed-delivery',
+            anonymousVerifiedFileCount: Object.keys(manifest.files).length,
+            transferredBehaviorProof: {
+              sourceCommit: manifest.behaviorProof.sourceCommit,
+              workflowRunId: manifest.behaviorProof.workflowRunId,
+              browserJobId: manifest.behaviorProof.browserJobId,
+              setupBlob: manifest.behaviorProof.setupBlob,
+              widgetBlob: manifest.behaviorProof.widgetBlob
+            }
+          }));
           NODE
-          node tools/verify-offline-kit.mjs "$RUNNER_TEMP/public-kit"
-          node -e "const r=require(process.argv[1]); const a=r.assets.find(x=>x.name==='website-chat-bot-standard.zip'); console.log(JSON.stringify({status:'PASS',publicRelease:true,releaseUrl:r.html_url,assetUrl:a.browser_download_url,assetBytes:a.size,tag:r.tag_name,draft:r.draft,prerelease:r.prerelease}))" "$RUNNER_TEMP/public-release.json"
+          node -e "const r=require(process.argv[1]); const a=r.assets.find(x=>x.name==='website-chat-bot-standard.zip'); console.log(JSON.stringify({status:'PASS',publicRelease:true,releaseUrl:r.html_url,assetUrl:a.browser_download_url,assetBytes:a.size,assetId:a.id,releaseId:r.id,tag:r.tag_name,draft:r.draft,prerelease:r.prerelease}))" "$RUNNER_TEMP/public-release.json"

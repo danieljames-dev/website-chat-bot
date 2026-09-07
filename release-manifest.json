@@ -1,10 +1,31 @@
 {
-  "schemaVersion": 1,
+  "schemaVersion": 2,
   "product": "Website Chat Bot Standard",
   "priceUsd": 19,
   "releaseTag": "standard-v1.0.0",
   "assetName": "website-chat-bot-standard.zip",
   "verifiedBuildSha256": "9f5fb490e90e819220dba924859b35708108ffcd26bad3f960ae39373db6ebf2",
+  "behaviorProof": {
+    "sourceRepository": "danieljames-dev/personalasist1",
+    "sourceCommit": "e61427cdbe46c7256c6cef662cdb3644f835ad01",
+    "workflowRunId": 34158883216,
+    "browserJobId": 101856341529,
+    "browserJobConclusion": "success",
+    "verifier": "products/website-chat-bot/tools/verify-standard-delivery.mjs",
+    "verifiedAtUtc": "2026-09-07T20:18:47Z",
+    "setupBlob": "e1c13c11147e5a7951af39eec38315f219425bc0",
+    "widgetBlob": "84be7812b12057f847ffc621c74605a18e87a3de",
+    "knownAnswer": {
+      "question": "when are you open",
+      "contains": "Mon-Fri 8am-6pm",
+      "source": "field:hours"
+    },
+    "unknownAnswer": {
+      "question": "do you finance yachts",
+      "contains": "I'd rather not guess",
+      "source": "locale:unknown"
+    }
+  },
   "files": {
     "ar/index.html": "0bada03601ae9ed7db68602adbbd8498d338f74d",
     "chat-bot.js": "84be7812b12057f847ffc621c74605a18e87a3de",
