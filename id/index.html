@@ -1,0 +1,72 @@
+<!doctype html>
+<html lang="id" dir="ltr">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Website Chat Bot — Chat untuk situs Anda yang menjawab dari data usaha Anda sendiri.</title>
+  <meta name="description" content="Satu baris kode. Tanpa biaya bulanan, tanpa langganan AI, dan tanpa data keluar dari halaman Anda. Menjawab sesuai yang Anda isi, dan berterus terang saat tidak tahu." />
+  <meta name="robots" content="noindex" />
+  <style>
+    :root { color-scheme: light dark; --ink: #16181c; --paper: #ffffff; --muted: #5b626d; --line: #e2e5ea; --accent: #c2410c; }
+    @media (prefers-color-scheme: dark) {
+      :root { --ink: #eceff3; --paper: #121417; --muted: #a3abb6; --line: #262a30; }
+    }
+    * { box-sizing: border-box; }
+    body { margin: 0; background: var(--paper); color: var(--ink); font: 16px/1.6 &#39;Segoe UI&#39;, system-ui, -apple-system, Roboto, Arial, &#39;Noto Sans&#39;, sans-serif; }
+    .wrap { max-width: 62rem; margin: 0 auto; padding: 2rem 1.25rem 6rem; }
+    .draft { background: #fff5d6; color: #4a3a00; border: 1px solid #e3cf8a; padding: .7rem 1rem; border-radius: 8px; font-size: .9rem; }
+    @media (prefers-color-scheme: dark) { .draft { background: #322a10; color: #f2e3b0; border-color: #5e5024; } }
+    h1 { font-size: clamp(1.7rem, 4.5vw, 2.6rem); line-height: 1.2; margin: 1.5rem 0 .75rem; }
+    .sub { font-size: 1.1rem; color: var(--muted); max-width: 42rem; }
+    ul.points { padding-inline-start: 1.2rem; max-width: 42rem; }
+    .tiers { display: grid; gap: 1rem; grid-template-columns: repeat(auto-fit, minmax(16rem, 1fr)); margin: 2rem 0; }
+    .tier { border: 1px solid var(--line); border-radius: 12px; padding: 1.25rem; background: var(--paper); }
+    .tier h3 { margin: 0 0 .25rem; }
+    .price { font-size: 1.5rem; font-weight: 700; margin: .25rem 0 .75rem; }
+    .buy { display: inline-block; background: var(--accent); color: #fff; text-decoration: none; padding: .7rem 1.1rem; border-radius: 8px; }
+    .unavailable { color: var(--muted); font-size: .95rem; border: 1px dashed var(--line); border-radius: 8px; padding: .6rem .8rem; }
+    .truth { border-inline-start: 3px solid var(--accent); padding-inline-start: .9rem; color: var(--muted); max-width: 42rem; }
+    .demo { border-top: 1px solid var(--line); margin-top: 2.5rem; padding-top: 1.5rem; }
+    footer { color: var(--muted); font-size: .85rem; margin-top: 3rem; border-top: 1px solid var(--line); padding-top: 1rem; }
+    footer a { color: inherit; }
+  </style>
+</head>
+<body>
+  <div class="wrap">
+    <p class="draft" role="note">Teks halaman ini masih draf mesin dan belum diperiksa penutur asli.</p>
+    <h1>Chat untuk situs Anda yang menjawab dari data usaha Anda sendiri.</h1>
+    <p class="sub">Satu baris kode. Tanpa biaya bulanan, tanpa langganan AI, dan tanpa data keluar dari halaman Anda. Menjawab sesuai yang Anda isi, dan berterus terang saat tidak tahu.</p>
+    <ul class="points">
+        <li>Menjawab jam buka, layanan, harga, dan kontak.</li>
+        <li>Berkata &quot;saya tidak tahu&quot; dan mengarahkan pengunjung ke Anda, bukan mengarang.</li>
+        <li>Berjalan di peramban pengunjung, jadi tidak ada biaya per percakapan.</li>
+    </ul>
+    <section class="tiers" aria-label="Website Chat Bot">
+      <article class="tier" id="tier-standard">
+        <h3>Standar</h3>
+        <p class="price">US$19.00</p>
+        <p>Anda mengisi data usaha sendiri dan menerima kode siap tempel untuk situs Anda.</p>
+        <p class="unavailable" data-state="not-purchasable">US$19.00 — belum dijual — belum ada tempat untuk mengirimkannya</p>
+      </article>
+      <article class="tier" id="tier-custom">
+        <h3>Kustom</h3>
+        <p class="price">US$49.00</p>
+        <p>Kirim alamat situs atau data usaha Anda, dan bot kembali sudah terisi, dengan warna dan gaya usaha Anda.</p>
+        <p class="unavailable" data-state="not-purchasable">US$49.00 — belum dijual — belum ada tempat untuk mengirimkannya</p>
+      </article>
+    </section>
+    <p class="truth">Ini bot FAQ deterministik, bukan agen AI generatif. Ia hanya mengulang data yang Anda berikan.</p>
+    <section class="demo">
+      <h2>Coba</h2>
+      <p class="sub">Ini bot sungguhan, berjalan di halaman ini dengan contoh usaha di bawah. — <strong>Bengkel Motor Sinar Jaya</strong></p>
+    </section>
+    <footer>
+      <p>Card statements and the checkout page show the Stripe account&#39;s registered business name, which is not the product name.</p>
+      <p><a href="../ar/" hreflang="ar">ar</a> · <a href="../de/" hreflang="de">de</a> · <a href="../en/" hreflang="en">en</a> · <a href="../es-419/" hreflang="es-419">es-419</a> · <a href="../fr/" hreflang="fr">fr</a> · <a href="../hi/" hreflang="hi">hi</a> · <a href="../id/" hreflang="id">id</a> · <a href="../ja/" hreflang="ja">ja</a> · <a href="../pt-BR/" hreflang="pt-BR">pt-BR</a></p>
+      <p><a href="../support.html">Support &amp; delivery</a> · <a href="../privacy.html">Privacy</a></p>
+    </footer>
+  </div>
+  <script>window.WEBSITE_CHAT_BOT = {"business":{"id":"demo-bengkel-id","name":"Bengkel Motor Sinar Jaya","locale":"id","theme":"bold","services":["servis rutin","ganti oli","perbaikan rem","kelistrikan motor"],"hours":{"mon":"08:00–17:00","tue":"08:00–17:00","wed":"08:00–17:00","thu":"08:00–17:00","fri":"08:00–11:30","sat":"08:00–15:00"},"address":"Jl. Melati No. 27, Sukamaju","phone":"+62 812 3456 7890","whatsapp":"+62 812 3456 7890","email":"halo@contoh-bengkel.test","website":"https://contoh-bengkel.test","pricing":"Servis rutin mulai Rp 75.000, dan biaya perbaikan selalu disampaikan sebelum dikerjakan.","faqs":[{"id":"antri","q":"Perlu buat janji dulu?","keywords":["janji","antri","booking","datang langsung"],"a":"Boleh datang langsung. Kalau mau tanpa antre, kabari lewat WhatsApp sebelum datang."},{"id":"sparepart","q":"Apakah sparepart tersedia?","keywords":["sparepart","suku cadang","onderdil","stok"],"a":"Sparepart cepat habis kami stok. Untuk yang jarang, biasanya siap dalam 1–2 hari kerja."},{"id":"garansi","q":"Ada garansi setelah servis?","keywords":["garansi","jaminan","klaim"],"a":"Ada. Garansi pengerjaan 14 hari, sedangkan garansi sparepart mengikuti ketentuan pabrik."}],"notes":"Usaha contoh fiktif. Semua data dibuat untuk demonstrasi."},"locale":{"locale":"id","language":"Bahasa Indonesia","direction":"ltr","greeting":"Halo, selamat datang di {name}. Tanya saja soal layanan, jam buka, atau cara menghubungi kami.","greetingGeneric":"Halo. Tanya saja soal layanan, jam buka, atau cara menghubungi kami.","unknown":"Itu tidak ada di catatan saya, dan saya tidak mau menebak. Tim kami bisa menjawabnya:","disambiguate":"Ada lebih dari satu jawaban yang cocok. Yang mana maksud Anda?","listSeparator":", ","actions":{"call":"Telepon","whatsapp":"WhatsApp","email":"Email","contact":"Hubungi kami","website":"Buka situs"},"intents":{"hours":["jam","jam buka","buka","tutup","kapan buka","hari ini","operasional"],"address":["alamat","dimana","lokasi","arah","cabang","parkir"],"phone":["telepon","nomor","hubungi","hp"],"email":["email","surel","kirim email"],"website":["situs","website","halaman","web"],"services":["layanan","jasa","apa saja","melayani"],"pricing":["harga","biaya","berapa","tarif","penawaran","estimasi"]},"intentLabels":{"hours":"Jam buka","address":"Lokasi kami","phone":"Nomor telepon","email":"Email","website":"Situs web","services":"Layanan kami","pricing":"Harga"},"answers":{"hours":"Jam buka kami {hours}.","address":"Kami ada di {address}.","phone":"Anda bisa menelepon {phone}.","email":"Anda bisa mengirim email ke {email}.","website":"Situs kami {website}.","services":"Kami melayani {services}.","pricing":"{pricing}"},"days":{"mon":"Sen","tue":"Sel","wed":"Rab","thu":"Kam","fri":"Jum","sat":"Sab","sun":"Min"},"ui":{"launcher":"Chat","launcherOpen":"Buka chat","launcherClose":"Tutup chat","title":"Ada pertanyaan?","placeholder":"Tulis pertanyaan Anda…","send":"Kirim","suggestionsLabel":"Pertanyaan umum","transcriptLabel":"Percakapan","draftNotice":"Teks halaman ini masih draf mesin dan belum diperiksa penutur asli."},"sales":{"headline":"Chat untuk situs Anda yang menjawab dari data usaha Anda sendiri.","subhead":"Satu baris kode. Tanpa biaya bulanan, tanpa langganan AI, dan tanpa data keluar dari halaman Anda. Menjawab sesuai yang Anda isi, dan berterus terang saat tidak tahu.","bullets":["Menjawab jam buka, layanan, harga, dan kontak.","Berkata \"saya tidak tahu\" dan mengarahkan pengunjung ke Anda, bukan mengarang.","Berjalan di peramban pengunjung, jadi tidak ada biaya per percakapan."],"standardName":"Standar","standardBlurb":"Anda mengisi data usaha sendiri dan menerima kode siap tempel untuk situs Anda.","standardCta":"Ambil bot Standar","customName":"Kustom","customBlurb":"Kirim alamat situs atau data usaha Anda, dan bot kembali sudah terisi, dengan warna dan gaya usaha Anda.","customCta":"Ambil bot Kustom","truthNote":"Ini bot FAQ deterministik, bukan agen AI generatif. Ia hanya mengulang data yang Anda berikan.","demoTitle":"Coba","demoHint":"Ini bot sungguhan, berjalan di halaman ini dengan contoh usaha di bawah.","notYetForSale":"belum dijual — belum ada tempat untuk mengirimkannya"},"translated":{"status":"machine-drafted","ui":"machine-drafted","sales":"machine-drafted","note":"Drafted by AION and not yet checked by a native speaker."}},"theme":{"id":"bold","name":"Bold","description":"High-contrast square panel with a wide labelled launcher bar. For trades, workshops and anything read on a phone in daylight.","tokens":{"accent":"#c2410c","accentText":"#ffffff","surface":"#ffffff","surfaceAlt":"#fff4ed","text":"#1b1917","textMuted":"#5c534d","border":"#1b1917","radius":"2px","radiusLauncher":"4px","shadow":"6px 6px 0 rgba(27, 25, 23, 0.9)","font":"'Segoe UI', system-ui, -apple-system, Roboto, Arial, 'Noto Sans', sans-serif","bubbleBot":"#fff4ed","bubbleUser":"#1b1917","bubbleUserText":"#ffffff"},"dark":{"surface":"#1b1917","surfaceAlt":"#2a2521","text":"#f7f2ee","textMuted":"#b7aca4","border":"#f7f2ee","shadow":"6px 6px 0 rgba(247, 242, 238, 0.25)","bubbleBot":"#2a2521","bubbleUser":"#f7f2ee","bubbleUserText":"#1b1917"}}};</script>
+  <script src="../chat-bot.js"></script>
+</body>
+</html>

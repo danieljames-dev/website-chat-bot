@@ -1,0 +1,72 @@
+<!doctype html>
+<html lang="ar" dir="rtl">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Website Chat Bot — محادثة لموقعك تجيب من معلومات نشاطك التجاري.</title>
+  <meta name="description" content="سطر برمجي واحد. بلا اشتراك شهري، وبلا اشتراك ذكاء اصطناعي، وبلا إرسال بيانات خارج صفحتك. تجيب بما أدخلته وتوضّح حين لا تعرف." />
+  <meta name="robots" content="noindex" />
+  <style>
+    :root { color-scheme: light dark; --ink: #16181c; --paper: #ffffff; --muted: #5b626d; --line: #e2e5ea; --accent: #2f6f6a; }
+    @media (prefers-color-scheme: dark) {
+      :root { --ink: #eceff3; --paper: #121417; --muted: #a3abb6; --line: #262a30; }
+    }
+    * { box-sizing: border-box; }
+    body { margin: 0; background: var(--paper); color: var(--ink); font: 16px/1.6 system-ui, -apple-system, &#39;Segoe UI&#39;, Roboto, &#39;Helvetica Neue&#39;, Arial, &#39;Noto Sans&#39;, sans-serif; }
+    .wrap { max-width: 62rem; margin: 0 auto; padding: 2rem 1.25rem 6rem; }
+    .draft { background: #fff5d6; color: #4a3a00; border: 1px solid #e3cf8a; padding: .7rem 1rem; border-radius: 8px; font-size: .9rem; }
+    @media (prefers-color-scheme: dark) { .draft { background: #322a10; color: #f2e3b0; border-color: #5e5024; } }
+    h1 { font-size: clamp(1.7rem, 4.5vw, 2.6rem); line-height: 1.2; margin: 1.5rem 0 .75rem; }
+    .sub { font-size: 1.1rem; color: var(--muted); max-width: 42rem; }
+    ul.points { padding-inline-start: 1.2rem; max-width: 42rem; }
+    .tiers { display: grid; gap: 1rem; grid-template-columns: repeat(auto-fit, minmax(16rem, 1fr)); margin: 2rem 0; }
+    .tier { border: 1px solid var(--line); border-radius: 12px; padding: 1.25rem; background: var(--paper); }
+    .tier h3 { margin: 0 0 .25rem; }
+    .price { font-size: 1.5rem; font-weight: 700; margin: .25rem 0 .75rem; }
+    .buy { display: inline-block; background: var(--accent); color: #fff; text-decoration: none; padding: .7rem 1.1rem; border-radius: 8px; }
+    .unavailable { color: var(--muted); font-size: .95rem; border: 1px dashed var(--line); border-radius: 8px; padding: .6rem .8rem; }
+    .truth { border-inline-start: 3px solid var(--accent); padding-inline-start: .9rem; color: var(--muted); max-width: 42rem; }
+    .demo { border-top: 1px solid var(--line); margin-top: 2.5rem; padding-top: 1.5rem; }
+    footer { color: var(--muted); font-size: .85rem; margin-top: 3rem; border-top: 1px solid var(--line); padding-top: 1rem; }
+    footer a { color: inherit; }
+  </style>
+</head>
+<body>
+  <div class="wrap">
+    <p class="draft" role="note">نص هذه الصفحة مسودة آلية لم يراجعها متحدث أصلي بعد.</p>
+    <h1>محادثة لموقعك تجيب من معلومات نشاطك التجاري.</h1>
+    <p class="sub">سطر برمجي واحد. بلا اشتراك شهري، وبلا اشتراك ذكاء اصطناعي، وبلا إرسال بيانات خارج صفحتك. تجيب بما أدخلته وتوضّح حين لا تعرف.</p>
+    <ul class="points">
+        <li>تجيب عن أوقات العمل والخدمات والأسعار وبيانات التواصل.</li>
+        <li>تقول «لا أعرف» وتحوّل الزائر إليك بدل اختلاق إجابة.</li>
+        <li>تعمل داخل متصفح الزائر، فلا تكلفة على كل محادثة.</li>
+    </ul>
+    <section class="tiers" aria-label="Website Chat Bot">
+      <article class="tier" id="tier-standard">
+        <h3>الأساسي</h3>
+        <p class="price">US$19.00</p>
+        <p>تدخل بيانات نشاطك بنفسك وتحصل على الكود جاهزاً للصق في موقعك.</p>
+        <p class="unavailable" data-state="not-purchasable">US$19.00 — غير متاح للشراء بعد، إذ لا توجد جهة تسليم حتى الآن</p>
+      </article>
+      <article class="tier" id="tier-custom">
+        <h3>المخصص</h3>
+        <p class="price">US$49.00</p>
+        <p>أرسل رابط موقعك أو بياناتك ونعيد إليك المحادثة جاهزة بألوان نشاطك وأسلوبه.</p>
+        <p class="unavailable" data-state="not-purchasable">US$49.00 — غير متاح للشراء بعد، إذ لا توجد جهة تسليم حتى الآن</p>
+      </article>
+    </section>
+    <p class="truth">هذا بوت أسئلة شائعة محدّد السلوك، وليس وكيل ذكاء اصطناعي توليدي. لا يكرر سوى ما تزوّده به.</p>
+    <section class="demo">
+      <h2>جرّبها</h2>
+      <p class="sub">هذه المحادثة الحقيقية تعمل على هذه الصفحة بنشاط تجاري تجريبي. — <strong>ورشة النخيل لصيانة السيارات</strong></p>
+    </section>
+    <footer>
+      <p>Card statements and the checkout page show the Stripe account&#39;s registered business name, which is not the product name.</p>
+      <p><a href="../ar/" hreflang="ar">ar</a> · <a href="../de/" hreflang="de">de</a> · <a href="../en/" hreflang="en">en</a> · <a href="../es-419/" hreflang="es-419">es-419</a> · <a href="../fr/" hreflang="fr">fr</a> · <a href="../hi/" hreflang="hi">hi</a> · <a href="../id/" hreflang="id">id</a> · <a href="../ja/" hreflang="ja">ja</a> · <a href="../pt-BR/" hreflang="pt-BR">pt-BR</a></p>
+      <p><a href="../support.html">Support &amp; delivery</a> · <a href="../privacy.html">Privacy</a></p>
+    </footer>
+  </div>
+  <script>window.WEBSITE_CHAT_BOT = {"business":{"id":"demo-workshop-ar","name":"ورشة النخيل لصيانة السيارات","locale":"ar","theme":"calm","services":["صيانة دورية","تغيير الزيت","فحص المكابح","كهرباء السيارة"],"hours":{"sat":"٨:٠٠–١٨:٠٠","sun":"٨:٠٠–١٨:٠٠","mon":"٨:٠٠–١٨:٠٠","tue":"٨:٠٠–١٨:٠٠","wed":"٨:٠٠–١٨:٠٠","thu":"٨:٠٠–١٤:٠٠"},"address":"شارع النخيل، الحي الصناعي","phone":"+966 55 123 4567","whatsapp":"+966 55 123 4567","email":"info@example-workshop.test","website":"https://example-workshop.test","pricing":"الفحص المبدئي مجاني، ويُقدَّم عرض السعر قبل بدء أي عمل.","faqs":[{"id":"appointment","q":"هل أحتاج إلى موعد مسبق؟","keywords":["موعد","حجز","مسبق","انتظار"],"a":"الحجز المسبق أفضل، لكننا نستقبل الحالات العاجلة خلال ساعات العمل."},{"id":"warranty","q":"هل هناك ضمان على الصيانة؟","keywords":["ضمان","كفالة","اصلاح"],"a":"نعم، الضمان على العمل ثلاثة أشهر أو ٥٠٠٠ كيلومتر، أيهما أقرب."},{"id":"pickup","q":"هل تقدمون خدمة استلام السيارة؟","keywords":["استلام","توصيل","سحب","ونش"],"a":"نوفر الاستلام داخل المدينة برسوم إضافية، ويُتفق عليها قبل الموعد."}],"notes":"نشاط تجاري تجريبي وهمي. جميع البيانات مُختلقة لغرض العرض فقط."},"locale":{"locale":"ar","language":"العربية","direction":"rtl","greeting":"أهلاً بك في {name}. اسألني عن خدماتنا أو أوقات العمل أو طريقة التواصل معنا.","greetingGeneric":"أهلاً بك. اسألني عن خدماتنا أو أوقات العمل أو طريقة التواصل معنا.","unknown":"هذا غير موجود في معلوماتي، ولا أفضّل التخمين. الفريق يستطيع الإجابة بدقة:","disambiguate":"وجدت أكثر من إجابة محتملة. أيّها تقصد؟","listSeparator":"، ","actions":{"call":"اتصال","whatsapp":"واتساب","email":"بريد إلكتروني","contact":"تواصل معنا","website":"زيارة الموقع"},"intents":{"hours":["الدوام","اوقات","أوقات العمل","متى تفتحون","الفتح","الاغلاق","اليوم"],"address":["العنوان","اين تقعون","الموقع","كيف اصل","الفرع","موقف"],"phone":["هاتف","رقم","اتصال","جوال"],"email":["بريد","ايميل","مراسلة"],"website":["الموقع الالكتروني","صفحة","انترنت"],"services":["الخدمات","ماذا تقدمون","ماذا تعملون","اعمال"],"pricing":["السعر","الاسعار","كم التكلفة","تكلفة","عرض سعر","رسوم"]},"intentLabels":{"hours":"أوقات العمل","address":"موقعنا","phone":"رقم الهاتف","email":"البريد الإلكتروني","website":"الموقع الإلكتروني","services":"خدماتنا","pricing":"الأسعار"},"answers":{"hours":"أوقات عملنا هي {hours}.","address":"تجدنا في {address}.","phone":"يمكنك الاتصال على {phone}.","email":"يمكنك مراسلتنا على {email}.","website":"موقعنا هو {website}.","services":"نقدّم {services}.","pricing":"{pricing}"},"days":{"mon":"الاثنين","tue":"الثلاثاء","wed":"الأربعاء","thu":"الخميس","fri":"الجمعة","sat":"السبت","sun":"الأحد"},"ui":{"launcher":"المحادثة","launcherOpen":"فتح المحادثة","launcherClose":"إغلاق المحادثة","title":"لديك سؤال؟","placeholder":"اكتب سؤالك…","send":"إرسال","suggestionsLabel":"أسئلة شائعة","transcriptLabel":"المحادثة","draftNotice":"نص هذه الصفحة مسودة آلية لم يراجعها متحدث أصلي بعد."},"sales":{"headline":"محادثة لموقعك تجيب من معلومات نشاطك التجاري.","subhead":"سطر برمجي واحد. بلا اشتراك شهري، وبلا اشتراك ذكاء اصطناعي، وبلا إرسال بيانات خارج صفحتك. تجيب بما أدخلته وتوضّح حين لا تعرف.","bullets":["تجيب عن أوقات العمل والخدمات والأسعار وبيانات التواصل.","تقول «لا أعرف» وتحوّل الزائر إليك بدل اختلاق إجابة.","تعمل داخل متصفح الزائر، فلا تكلفة على كل محادثة."],"standardName":"الأساسي","standardBlurb":"تدخل بيانات نشاطك بنفسك وتحصل على الكود جاهزاً للصق في موقعك.","standardCta":"أريد النسخة الأساسية","customName":"المخصص","customBlurb":"أرسل رابط موقعك أو بياناتك ونعيد إليك المحادثة جاهزة بألوان نشاطك وأسلوبه.","customCta":"أريد النسخة المخصصة","truthNote":"هذا بوت أسئلة شائعة محدّد السلوك، وليس وكيل ذكاء اصطناعي توليدي. لا يكرر سوى ما تزوّده به.","demoTitle":"جرّبها","demoHint":"هذه المحادثة الحقيقية تعمل على هذه الصفحة بنشاط تجاري تجريبي.","notYetForSale":"غير متاح للشراء بعد، إذ لا توجد جهة تسليم حتى الآن"},"translated":{"status":"machine-drafted","ui":"machine-drafted","sales":"machine-drafted","note":"Drafted by AION and not yet checked by a native speaker. Present for the right-to-left layout proof; not a launch locale."}},"theme":{"id":"calm","name":"Calm","description":"Soft neutral panel with a rounded launcher. Reads as a normal support widget on almost any site.","tokens":{"accent":"#2f6f6a","accentText":"#ffffff","surface":"#ffffff","surfaceAlt":"#f4f6f6","text":"#16221f","textMuted":"#5b6b68","border":"#d7e0de","radius":"14px","radiusLauncher":"999px","shadow":"0 10px 30px rgba(22, 34, 31, 0.16)","font":"system-ui, -apple-system, 'Segoe UI', Roboto, 'Helvetica Neue', Arial, 'Noto Sans', sans-serif","bubbleBot":"#f4f6f6","bubbleUser":"#2f6f6a","bubbleUserText":"#ffffff"},"dark":{"surface":"#131a19","surfaceAlt":"#1c2523","text":"#e8efed","textMuted":"#9fb0ad","border":"#2b3634","bubbleBot":"#1c2523"}}};</script>
+  <script src="../chat-bot.js"></script>
+</body>
+</html>

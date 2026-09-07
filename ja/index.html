@@ -1,0 +1,72 @@
+<!doctype html>
+<html lang="ja" dir="ltr">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Website Chat Bot — 自社の情報だけで答える、ウェブサイト用のチャット。</title>
+  <meta name="description" content="コードは一行。月額なし、AIの契約なし、データがページの外に出ることもありません。登録した内容だけを答え、分からないときははっきりそう伝えます。" />
+  <meta name="robots" content="noindex" />
+  <style>
+    :root { color-scheme: light dark; --ink: #16181c; --paper: #ffffff; --muted: #5b626d; --line: #e2e5ea; --accent: #1f2937; }
+    @media (prefers-color-scheme: dark) {
+      :root { --ink: #eceff3; --paper: #121417; --muted: #a3abb6; --line: #262a30; }
+    }
+    * { box-sizing: border-box; }
+    body { margin: 0; background: var(--paper); color: var(--ink); font: 16px/1.6 Georgia, &#39;Times New Roman&#39;, &#39;Noto Serif&#39;, serif; }
+    .wrap { max-width: 62rem; margin: 0 auto; padding: 2rem 1.25rem 6rem; }
+    .draft { background: #fff5d6; color: #4a3a00; border: 1px solid #e3cf8a; padding: .7rem 1rem; border-radius: 8px; font-size: .9rem; }
+    @media (prefers-color-scheme: dark) { .draft { background: #322a10; color: #f2e3b0; border-color: #5e5024; } }
+    h1 { font-size: clamp(1.7rem, 4.5vw, 2.6rem); line-height: 1.2; margin: 1.5rem 0 .75rem; }
+    .sub { font-size: 1.1rem; color: var(--muted); max-width: 42rem; }
+    ul.points { padding-inline-start: 1.2rem; max-width: 42rem; }
+    .tiers { display: grid; gap: 1rem; grid-template-columns: repeat(auto-fit, minmax(16rem, 1fr)); margin: 2rem 0; }
+    .tier { border: 1px solid var(--line); border-radius: 12px; padding: 1.25rem; background: var(--paper); }
+    .tier h3 { margin: 0 0 .25rem; }
+    .price { font-size: 1.5rem; font-weight: 700; margin: .25rem 0 .75rem; }
+    .buy { display: inline-block; background: var(--accent); color: #fff; text-decoration: none; padding: .7rem 1.1rem; border-radius: 8px; }
+    .unavailable { color: var(--muted); font-size: .95rem; border: 1px dashed var(--line); border-radius: 8px; padding: .6rem .8rem; }
+    .truth { border-inline-start: 3px solid var(--accent); padding-inline-start: .9rem; color: var(--muted); max-width: 42rem; }
+    .demo { border-top: 1px solid var(--line); margin-top: 2.5rem; padding-top: 1.5rem; }
+    footer { color: var(--muted); font-size: .85rem; margin-top: 3rem; border-top: 1px solid var(--line); padding-top: 1rem; }
+    footer a { color: inherit; }
+  </style>
+</head>
+<body>
+  <div class="wrap">
+    <p class="draft" role="note">このページの文章は機械翻訳の下書きで、母語話者の確認はまだ受けていません。</p>
+    <h1>自社の情報だけで答える、ウェブサイト用のチャット。</h1>
+    <p class="sub">コードは一行。月額なし、AIの契約なし、データがページの外に出ることもありません。登録した内容だけを答え、分からないときははっきりそう伝えます。</p>
+    <ul class="points">
+        <li>営業時間・サービス・料金・連絡先にお答えします。</li>
+        <li>作り話をせず「分かりません」と伝えて、担当者へおつなぎします。</li>
+        <li>訪問者のブラウザで動くため、会話ごとの費用はかかりません。</li>
+    </ul>
+    <section class="tiers" aria-label="Website Chat Bot">
+      <article class="tier" id="tier-standard">
+        <h3>スタンダード</h3>
+        <p class="price">US$19.00</p>
+        <p>ご自身で情報を入力し、サイトに貼り付けるだけのコードをお渡しします。</p>
+        <p class="unavailable" data-state="not-purchasable">US$19.00 — まだ販売していません（お渡しする場所がまだありません）</p>
+      </article>
+      <article class="tier" id="tier-custom">
+        <h3>カスタム</h3>
+        <p class="price">US$49.00</p>
+        <p>サイトのURLか情報をお送りいただければ、色や言い回しまで整えた状態でお返しします。</p>
+        <p class="unavailable" data-state="not-purchasable">US$49.00 — まだ販売していません（お渡しする場所がまだありません）</p>
+      </article>
+    </section>
+    <p class="truth">これは決められた規則で動くFAQボットであり、生成AIエージェントではありません。ご提供いただいた情報のみを返します。</p>
+    <section class="demo">
+      <h2>試す</h2>
+      <p class="sub">これは実際に動作しているボットです。以下の例の事業所の情報で応答します。 — <strong>みどり整骨院</strong></p>
+    </section>
+    <footer>
+      <p>Card statements and the checkout page show the Stripe account&#39;s registered business name, which is not the product name.</p>
+      <p><a href="../ar/" hreflang="ar">ar</a> · <a href="../de/" hreflang="de">de</a> · <a href="../en/" hreflang="en">en</a> · <a href="../es-419/" hreflang="es-419">es-419</a> · <a href="../fr/" hreflang="fr">fr</a> · <a href="../hi/" hreflang="hi">hi</a> · <a href="../id/" hreflang="id">id</a> · <a href="../ja/" hreflang="ja">ja</a> · <a href="../pt-BR/" hreflang="pt-BR">pt-BR</a></p>
+      <p><a href="../support.html">Support &amp; delivery</a> · <a href="../privacy.html">Privacy</a></p>
+    </footer>
+  </div>
+  <script>window.WEBSITE_CHAT_BOT = {"business":{"id":"demo-seikotsuin-ja","name":"みどり整骨院","locale":"ja","theme":"minimal","services":["交通事故施術","腰痛・肩こり施術","スポーツ外傷","骨盤矯正"],"hours":{"mon":"9:00–13:00 / 15:00–20:00","tue":"9:00–13:00 / 15:00–20:00","wed":"9:00–13:00","thu":"9:00–13:00 / 15:00–20:00","fri":"9:00–13:00 / 15:00–20:00","sat":"9:00–14:00"},"address":"みどり市中央 2-14-3","phone":"+81 3 1234 5678","email":"info@example-clinic.test","website":"https://example-clinic.test","pricing":"初回は問診と検査を含めて3,500円、2回目以降は2,500円です。","faqs":[{"id":"yoyaku","q":"予約は必要ですか。","keywords":["予約","当日","飛び込み","待ち時間"],"a":"予約優先です。当日でもお受けしますが、お電話いただくとお待たせしません。"},{"id":"hoken","q":"健康保険は使えますか。","keywords":["保険","健康保険","自費","適用"],"a":"けがの施術には保険が使えます。慢性的な肩こりや骨盤矯正は自費です。"},{"id":"mochimono","q":"初回に持っていくものはありますか。","keywords":["持ち物","初回","必要","保険証"],"a":"保険証と、動きやすい服装をお持ちください。着替えは院内にもあります。"}],"notes":"架空のデモ事業所です。記載内容はすべて例として作成したものです。"},"locale":{"locale":"ja","language":"日本語","direction":"ltr","greeting":"{name}へようこそ。サービス・営業時間・ご連絡先について、お気軽にご質問ください。","greetingGeneric":"ようこそ。サービス・営業時間・ご連絡先について、お気軽にご質問ください。","unknown":"その情報は登録されていないため、推測でお答えすることは控えます。担当者が正確にお答えします。","disambiguate":"該当しそうな回答が複数あります。どちらでしょうか。","listSeparator":"、","actions":{"call":"電話する","whatsapp":"WhatsApp","email":"メール","contact":"お問い合わせ","website":"サイトを見る"},"intents":{"hours":["営業時間","何時","開店","閉店","定休日","本日","やってますか"],"address":["住所","場所","どこ","アクセス","行き方","駐車場"],"phone":["電話","電話番号","番号","連絡先"],"email":["メール","メールアドレス","問い合わせ先"],"website":["サイト","ホームページ","ウェブ"],"services":["サービス","何ができる","対応","メニュー","業務"],"pricing":["料金","価格","いくら","費用","見積","相場"]},"intentLabels":{"hours":"営業時間","address":"所在地","phone":"電話番号","email":"メールアドレス","website":"ウェブサイト","services":"サービス内容","pricing":"料金"},"answers":{"hours":"営業時間は{hours}です。","address":"所在地は{address}です。","phone":"お電話は{phone}へどうぞ。","email":"メールは{email}へどうぞ。","website":"ウェブサイトは{website}です。","services":"{services}に対応しています。","pricing":"{pricing}"},"days":{"mon":"月","tue":"火","wed":"水","thu":"木","fri":"金","sat":"土","sun":"日"},"ui":{"launcher":"チャット","launcherOpen":"チャットを開く","launcherClose":"チャットを閉じる","title":"ご質問はこちら","placeholder":"ご質問を入力…","send":"送信","suggestionsLabel":"よくある質問","transcriptLabel":"会話","draftNotice":"このページの文章は機械翻訳の下書きで、母語話者の確認はまだ受けていません。"},"sales":{"headline":"自社の情報だけで答える、ウェブサイト用のチャット。","subhead":"コードは一行。月額なし、AIの契約なし、データがページの外に出ることもありません。登録した内容だけを答え、分からないときははっきりそう伝えます。","bullets":["営業時間・サービス・料金・連絡先にお答えします。","作り話をせず「分かりません」と伝えて、担当者へおつなぎします。","訪問者のブラウザで動くため、会話ごとの費用はかかりません。"],"standardName":"スタンダード","standardBlurb":"ご自身で情報を入力し、サイトに貼り付けるだけのコードをお渡しします。","standardCta":"スタンダードを入手","customName":"カスタム","customBlurb":"サイトのURLか情報をお送りいただければ、色や言い回しまで整えた状態でお返しします。","customCta":"カスタムを入手","truthNote":"これは決められた規則で動くFAQボットであり、生成AIエージェントではありません。ご提供いただいた情報のみを返します。","demoTitle":"試す","demoHint":"これは実際に動作しているボットです。以下の例の事業所の情報で応答します。","notYetForSale":"まだ販売していません（お渡しする場所がまだありません）"},"translated":{"status":"machine-drafted","ui":"machine-drafted","sales":"machine-drafted","note":"Drafted by AION and not yet checked by a native speaker."}},"theme":{"id":"minimal","name":"Minimal","description":"Borderless, typographic, almost no chrome. For clinics, studios and sites that already have a strong design.","tokens":{"accent":"#1f2937","accentText":"#ffffff","surface":"#fdfdfc","surfaceAlt":"#f2f2f0","text":"#111827","textMuted":"#6b7280","border":"#e5e5e2","radius":"6px","radiusLauncher":"6px","shadow":"0 1px 2px rgba(17, 24, 39, 0.08), 0 8px 24px rgba(17, 24, 39, 0.06)","font":"Georgia, 'Times New Roman', 'Noto Serif', serif","bubbleBot":"#f2f2f0","bubbleUser":"#1f2937","bubbleUserText":"#ffffff"},"dark":{"surface":"#111312","surfaceAlt":"#1a1d1c","text":"#f3f4f2","textMuted":"#9ca3a0","border":"#262a29","bubbleBot":"#1a1d1c"}}};</script>
+  <script src="../chat-bot.js"></script>
+</body>
+</html>

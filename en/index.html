@@ -1,0 +1,71 @@
+<!doctype html>
+<html lang="en" dir="ltr">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Website Chat Bot — A chat bot for your website that answers from your own facts.</title>
+  <meta name="description" content="One script tag. No monthly fee, no AI subscription, no data leaving your page. It answers what you told it and says so plainly when it doesn&#39;t know." />
+  <meta name="robots" content="noindex" />
+  <style>
+    :root { color-scheme: light dark; --ink: #16181c; --paper: #ffffff; --muted: #5b626d; --line: #e2e5ea; --accent: #c2410c; }
+    @media (prefers-color-scheme: dark) {
+      :root { --ink: #eceff3; --paper: #121417; --muted: #a3abb6; --line: #262a30; }
+    }
+    * { box-sizing: border-box; }
+    body { margin: 0; background: var(--paper); color: var(--ink); font: 16px/1.6 &#39;Segoe UI&#39;, system-ui, -apple-system, Roboto, Arial, &#39;Noto Sans&#39;, sans-serif; }
+    .wrap { max-width: 62rem; margin: 0 auto; padding: 2rem 1.25rem 6rem; }
+    .draft { background: #fff5d6; color: #4a3a00; border: 1px solid #e3cf8a; padding: .7rem 1rem; border-radius: 8px; font-size: .9rem; }
+    @media (prefers-color-scheme: dark) { .draft { background: #322a10; color: #f2e3b0; border-color: #5e5024; } }
+    h1 { font-size: clamp(1.7rem, 4.5vw, 2.6rem); line-height: 1.2; margin: 1.5rem 0 .75rem; }
+    .sub { font-size: 1.1rem; color: var(--muted); max-width: 42rem; }
+    ul.points { padding-inline-start: 1.2rem; max-width: 42rem; }
+    .tiers { display: grid; gap: 1rem; grid-template-columns: repeat(auto-fit, minmax(16rem, 1fr)); margin: 2rem 0; }
+    .tier { border: 1px solid var(--line); border-radius: 12px; padding: 1.25rem; background: var(--paper); }
+    .tier h3 { margin: 0 0 .25rem; }
+    .price { font-size: 1.5rem; font-weight: 700; margin: .25rem 0 .75rem; }
+    .buy { display: inline-block; background: var(--accent); color: #fff; text-decoration: none; padding: .7rem 1.1rem; border-radius: 8px; }
+    .unavailable { color: var(--muted); font-size: .95rem; border: 1px dashed var(--line); border-radius: 8px; padding: .6rem .8rem; }
+    .truth { border-inline-start: 3px solid var(--accent); padding-inline-start: .9rem; color: var(--muted); max-width: 42rem; }
+    .demo { border-top: 1px solid var(--line); margin-top: 2.5rem; padding-top: 1.5rem; }
+    footer { color: var(--muted); font-size: .85rem; margin-top: 3rem; border-top: 1px solid var(--line); padding-top: 1rem; }
+    footer a { color: inherit; }
+  </style>
+</head>
+<body>
+  <div class="wrap">
+    <h1>A chat bot for your website that answers from your own facts.</h1>
+    <p class="sub">One script tag. No monthly fee, no AI subscription, no data leaving your page. It answers what you told it and says so plainly when it doesn&#39;t know.</p>
+    <ul class="points">
+        <li>Answers your opening hours, services, prices and contact details.</li>
+        <li>Says &quot;I don&#39;t know&quot; and hands the visitor to you instead of inventing an answer.</li>
+        <li>Runs entirely in the visitor&#39;s browser, so there is nothing to pay per conversation.</li>
+    </ul>
+    <section class="tiers" aria-label="Website Chat Bot">
+      <article class="tier" id="tier-standard">
+        <h3>Standard</h3>
+        <p class="price">US$19.00</p>
+        <p>You fill in your own details and get the finished snippet to paste into your site.</p>
+        <p class="unavailable" data-state="not-purchasable">US$19.00 — not on sale yet — there is nowhere to deliver it to</p>
+      </article>
+      <article class="tier" id="tier-custom">
+        <h3>Custom</h3>
+        <p class="price">US$49.00</p>
+        <p>Send us your website or your details and get back a bot already filled in, styled and worded for your business.</p>
+        <p class="unavailable" data-state="not-purchasable">US$49.00 — not on sale yet — there is nowhere to deliver it to</p>
+      </article>
+    </section>
+    <p class="truth">This is a deterministic FAQ bot, not a generative AI agent. It only repeats facts you supply.</p>
+    <section class="demo">
+      <h2>Try it</h2>
+      <p class="sub">This is the real bot, running on this page with the example business below. — <strong>Marsh &amp; Cole Plumbing</strong></p>
+    </section>
+    <footer>
+      <p>Card statements and the checkout page show the Stripe account&#39;s registered business name, which is not the product name.</p>
+      <p><a href="../ar/" hreflang="ar">ar</a> · <a href="../de/" hreflang="de">de</a> · <a href="../en/" hreflang="en">en</a> · <a href="../es-419/" hreflang="es-419">es-419</a> · <a href="../fr/" hreflang="fr">fr</a> · <a href="../hi/" hreflang="hi">hi</a> · <a href="../id/" hreflang="id">id</a> · <a href="../ja/" hreflang="ja">ja</a> · <a href="../pt-BR/" hreflang="pt-BR">pt-BR</a></p>
+      <p><a href="../support.html">Support &amp; delivery</a> · <a href="../privacy.html">Privacy</a></p>
+    </footer>
+  </div>
+  <script>window.WEBSITE_CHAT_BOT = {"business":{"id":"demo-plumber-en","name":"Marsh & Cole Plumbing","locale":"en","theme":"bold","services":["emergency leak repair","boiler servicing","bathroom installation","drain clearing"],"hours":{"mon":"8am–6pm","tue":"8am–6pm","wed":"8am–6pm","thu":"8am–6pm","fri":"8am–5pm","sat":"9am–1pm"},"address":"14 Weaver Street, Riverton","phone":"+1 555 0134 220","email":"hello@example-plumbing.test","website":"https://example-plumbing.test","pricing":"Call-outs start at $89, and we quote the job before any work begins.","faqs":[{"id":"emergency","q":"Do you do emergency call-outs?","keywords":["emergency","urgent","burst","flooding","out of hours"],"a":"Yes. We take emergency call-outs during opening hours, and the fastest way to reach us is by phone."},{"id":"areas","q":"Which areas do you cover?","keywords":["area","cover","travel","postcode","nearby"],"a":"We cover Riverton and the surrounding towns within about 20 miles."},{"id":"payment","q":"How can I pay?","keywords":["pay","payment","card","cash","invoice"],"a":"We take card or bank transfer, and we invoice after the work is signed off."},{"id":"guarantee","q":"Is the work guaranteed?","keywords":["guarantee","warranty","insured"],"a":"Yes. Workmanship is guaranteed for 12 months and we are fully insured."}],"notes":"Fictional demo business. Every detail here is invented for the demo and belongs to no real company."},"locale":{"locale":"en","language":"English","direction":"ltr","greeting":"Hi — welcome to {name}. Ask me about our services, hours or how to reach us.","greetingGeneric":"Hi — ask me about our services, hours or how to reach us.","unknown":"I don't have that in my notes, so I'd rather not guess. The team can answer it properly:","disambiguate":"I found more than one thing that could match. Which did you mean?","listSeparator":", ","actions":{"call":"Call","whatsapp":"WhatsApp","email":"Email","contact":"Contact us","website":"Visit website"},"intents":{"hours":["hours","opening hours","open","close","closing","when are you open","what time","schedule","today"],"address":["address","where are you","location","directions","find you","parking"],"phone":["phone","phone number","call you","telephone","number"],"email":["email","email address","mail you","write to you"],"website":["website","site","web page","online"],"services":["services","what do you do","what do you offer","help with","do you do"],"pricing":["price","prices","cost","how much","quote","estimate","rate","fee"]},"intentLabels":{"hours":"Opening hours","address":"Where to find us","phone":"Phone number","email":"Email address","website":"Website","services":"What we do","pricing":"Prices"},"answers":{"hours":"Our hours are {hours}.","address":"You can find us at {address}.","phone":"You can call us on {phone}.","email":"You can email us at {email}.","website":"Our website is {website}.","services":"We do {services}.","pricing":"{pricing}"},"days":{"mon":"Mon","tue":"Tue","wed":"Wed","thu":"Thu","fri":"Fri","sat":"Sat","sun":"Sun"},"ui":{"launcher":"Chat","launcherOpen":"Open chat","launcherClose":"Close chat","title":"Questions?","placeholder":"Type your question…","send":"Send","suggestionsLabel":"Common questions","transcriptLabel":"Conversation","draftNotice":"This page's wording is a machine draft awaiting a native check."},"sales":{"headline":"A chat bot for your website that answers from your own facts.","subhead":"One script tag. No monthly fee, no AI subscription, no data leaving your page. It answers what you told it and says so plainly when it doesn't know.","bullets":["Answers your opening hours, services, prices and contact details.","Says \"I don't know\" and hands the visitor to you instead of inventing an answer.","Runs entirely in the visitor's browser, so there is nothing to pay per conversation."],"standardName":"Standard","standardBlurb":"You fill in your own details and get the finished snippet to paste into your site.","standardCta":"Get the Standard bot","customName":"Custom","customBlurb":"Send us your website or your details and get back a bot already filled in, styled and worded for your business.","customCta":"Get the Custom bot","truthNote":"This is a deterministic FAQ bot, not a generative AI agent. It only repeats facts you supply.","demoTitle":"Try it","demoHint":"This is the real bot, running on this page with the example business below.","notYetForSale":"not on sale yet — there is nowhere to deliver it to"},"translated":{"status":"source","ui":"source","sales":"source","note":"English is the source language for this product."}},"theme":{"id":"bold","name":"Bold","description":"High-contrast square panel with a wide labelled launcher bar. For trades, workshops and anything read on a phone in daylight.","tokens":{"accent":"#c2410c","accentText":"#ffffff","surface":"#ffffff","surfaceAlt":"#fff4ed","text":"#1b1917","textMuted":"#5c534d","border":"#1b1917","radius":"2px","radiusLauncher":"4px","shadow":"6px 6px 0 rgba(27, 25, 23, 0.9)","font":"'Segoe UI', system-ui, -apple-system, Roboto, Arial, 'Noto Sans', sans-serif","bubbleBot":"#fff4ed","bubbleUser":"#1b1917","bubbleUserText":"#ffffff"},"dark":{"surface":"#1b1917","surfaceAlt":"#2a2521","text":"#f7f2ee","textMuted":"#b7aca4","border":"#f7f2ee","shadow":"6px 6px 0 rgba(247, 242, 238, 0.25)","bubbleBot":"#2a2521","bubbleUser":"#f7f2ee","bubbleUserText":"#1b1917"}}};</script>
+  <script src="../chat-bot.js"></script>
+</body>
+</html>

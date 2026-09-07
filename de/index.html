@@ -1,0 +1,72 @@
+<!doctype html>
+<html lang="de" dir="ltr">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Website Chat Bot — Ein Chat für Ihre Website, der aus Ihren eigenen Angaben antwortet.</title>
+  <meta name="description" content="Eine Zeile Code. Keine monatliche Gebühr, kein KI-Abo, keine Daten verlassen Ihre Seite. Er antwortet mit dem, was Sie hinterlegt haben, und sagt deutlich, wenn er etwas nicht weiß." />
+  <meta name="robots" content="noindex" />
+  <style>
+    :root { color-scheme: light dark; --ink: #16181c; --paper: #ffffff; --muted: #5b626d; --line: #e2e5ea; --accent: #c2410c; }
+    @media (prefers-color-scheme: dark) {
+      :root { --ink: #eceff3; --paper: #121417; --muted: #a3abb6; --line: #262a30; }
+    }
+    * { box-sizing: border-box; }
+    body { margin: 0; background: var(--paper); color: var(--ink); font: 16px/1.6 &#39;Segoe UI&#39;, system-ui, -apple-system, Roboto, Arial, &#39;Noto Sans&#39;, sans-serif; }
+    .wrap { max-width: 62rem; margin: 0 auto; padding: 2rem 1.25rem 6rem; }
+    .draft { background: #fff5d6; color: #4a3a00; border: 1px solid #e3cf8a; padding: .7rem 1rem; border-radius: 8px; font-size: .9rem; }
+    @media (prefers-color-scheme: dark) { .draft { background: #322a10; color: #f2e3b0; border-color: #5e5024; } }
+    h1 { font-size: clamp(1.7rem, 4.5vw, 2.6rem); line-height: 1.2; margin: 1.5rem 0 .75rem; }
+    .sub { font-size: 1.1rem; color: var(--muted); max-width: 42rem; }
+    ul.points { padding-inline-start: 1.2rem; max-width: 42rem; }
+    .tiers { display: grid; gap: 1rem; grid-template-columns: repeat(auto-fit, minmax(16rem, 1fr)); margin: 2rem 0; }
+    .tier { border: 1px solid var(--line); border-radius: 12px; padding: 1.25rem; background: var(--paper); }
+    .tier h3 { margin: 0 0 .25rem; }
+    .price { font-size: 1.5rem; font-weight: 700; margin: .25rem 0 .75rem; }
+    .buy { display: inline-block; background: var(--accent); color: #fff; text-decoration: none; padding: .7rem 1.1rem; border-radius: 8px; }
+    .unavailable { color: var(--muted); font-size: .95rem; border: 1px dashed var(--line); border-radius: 8px; padding: .6rem .8rem; }
+    .truth { border-inline-start: 3px solid var(--accent); padding-inline-start: .9rem; color: var(--muted); max-width: 42rem; }
+    .demo { border-top: 1px solid var(--line); margin-top: 2.5rem; padding-top: 1.5rem; }
+    footer { color: var(--muted); font-size: .85rem; margin-top: 3rem; border-top: 1px solid var(--line); padding-top: 1rem; }
+    footer a { color: inherit; }
+  </style>
+</head>
+<body>
+  <div class="wrap">
+    <p class="draft" role="note">Der Text dieser Seite ist ein maschineller Entwurf und wurde noch nicht muttersprachlich geprüft.</p>
+    <h1>Ein Chat für Ihre Website, der aus Ihren eigenen Angaben antwortet.</h1>
+    <p class="sub">Eine Zeile Code. Keine monatliche Gebühr, kein KI-Abo, keine Daten verlassen Ihre Seite. Er antwortet mit dem, was Sie hinterlegt haben, und sagt deutlich, wenn er etwas nicht weiß.</p>
+    <ul class="points">
+        <li>Beantwortet Öffnungszeiten, Leistungen, Preise und Kontaktdaten.</li>
+        <li>Sagt „weiß ich nicht“ und leitet an Sie weiter, statt etwas zu erfinden.</li>
+        <li>Läuft im Browser der Besucher, es fällt also nichts pro Gespräch an.</li>
+    </ul>
+    <section class="tiers" aria-label="Website Chat Bot">
+      <article class="tier" id="tier-standard">
+        <h3>Standard</h3>
+        <p class="price">US$19.00</p>
+        <p>Sie tragen Ihre Angaben selbst ein und erhalten den fertigen Code zum Einfügen.</p>
+        <p class="unavailable" data-state="not-purchasable">US$19.00 — noch nicht käuflich – es gibt noch keinen Ort für die Auslieferung</p>
+      </article>
+      <article class="tier" id="tier-custom">
+        <h3>Individuell</h3>
+        <p class="price">US$49.00</p>
+        <p>Schicken Sie Ihre Website oder Ihre Angaben und Sie erhalten den Chat fertig eingerichtet, in Ihren Farben und Ihrer Ansprache.</p>
+        <p class="unavailable" data-state="not-purchasable">US$49.00 — noch nicht käuflich – es gibt noch keinen Ort für die Auslieferung</p>
+      </article>
+    </section>
+    <p class="truth">Dies ist ein deterministischer FAQ-Bot, kein generativer KI-Agent. Er gibt nur wieder, was Sie hinterlegen.</p>
+    <section class="demo">
+      <h2>Ausprobieren</h2>
+      <p class="sub">Das ist der echte Chat, hier auf der Seite, mit dem Beispielbetrieb unten. — <strong>Elektro Hartmann</strong></p>
+    </section>
+    <footer>
+      <p>Card statements and the checkout page show the Stripe account&#39;s registered business name, which is not the product name.</p>
+      <p><a href="../ar/" hreflang="ar">ar</a> · <a href="../de/" hreflang="de">de</a> · <a href="../en/" hreflang="en">en</a> · <a href="../es-419/" hreflang="es-419">es-419</a> · <a href="../fr/" hreflang="fr">fr</a> · <a href="../hi/" hreflang="hi">hi</a> · <a href="../id/" hreflang="id">id</a> · <a href="../ja/" hreflang="ja">ja</a> · <a href="../pt-BR/" hreflang="pt-BR">pt-BR</a></p>
+      <p><a href="../support.html">Support &amp; delivery</a> · <a href="../privacy.html">Privacy</a></p>
+    </footer>
+  </div>
+  <script>window.WEBSITE_CHAT_BOT = {"business":{"id":"demo-elektriker-de","name":"Elektro Hartmann","locale":"de","theme":"bold","services":["Elektroinstallation","Zählerwechsel","Wallbox-Montage","Störungsdienst"],"hours":{"mon":"07:30–16:30","tue":"07:30–16:30","wed":"07:30–16:30","thu":"07:30–16:30","fri":"07:30–13:00"},"address":"Gewerbestraße 12, Musterstadt","phone":"+49 30 12345678","email":"buero@beispiel-elektro.test","website":"https://beispiel-elektro.test","pricing":"Die Anfahrtspauschale beträgt 49 €, und jedes Angebot wird vor Arbeitsbeginn schriftlich bestätigt.","faqs":[{"id":"wallbox","q":"Montieren Sie auch Wallboxen?","keywords":["wallbox","ladestation","e-auto","elektroauto"],"a":"Ja, wir montieren und melden Wallboxen an. Für die Anmeldung beim Netzbetreiber brauchen wir Zählernummer und Fabrikat."},{"id":"notdienst","q":"Haben Sie einen Notdienst?","keywords":["notdienst","notfall","stromausfall","dringend"],"a":"Störungen bearbeiten wir innerhalb der Bürozeiten vorrangig. Einen Notdienst außerhalb der Bürozeiten bieten wir nicht an."},{"id":"termin","q":"Wie schnell bekomme ich einen Termin?","keywords":["termin","wartezeit","wann","frei"],"a":"Kleinere Arbeiten meist innerhalb von zwei Wochen, größere Installationen nach Absprache."}],"notes":"Fiktiver Demonstrationsbetrieb. Alle Angaben sind erfunden."},"locale":{"locale":"de","language":"Deutsch","direction":"ltr","greeting":"Hallo und willkommen bei {name}. Fragen Sie mich nach unseren Leistungen, Öffnungszeiten oder Kontaktmöglichkeiten.","greetingGeneric":"Hallo. Fragen Sie mich nach unseren Leistungen, Öffnungszeiten oder Kontaktmöglichkeiten.","unknown":"Das steht nicht in meinen Angaben, und ich möchte nichts erfinden. Das Team beantwortet es Ihnen genau:","disambiguate":"Dazu passt mehr als eine Antwort. Welche meinen Sie?","listSeparator":", ","actions":{"call":"Anrufen","whatsapp":"WhatsApp","email":"E-Mail","contact":"Kontakt","website":"Zur Website"},"intents":{"hours":["offnungszeiten","geoffnet","offen","schliessen","wann","uhrzeit","heute"],"address":["adresse","wo finde ich","standort","anfahrt","parken","filiale"],"phone":["telefon","nummer","anrufen","handy"],"email":["email","e-mail","mail","schreiben"],"website":["website","seite","internet","web"],"services":["leistungen","was machen sie","angebot","bieten"],"pricing":["preis","preise","kosten","was kostet","angebot einholen","gebuhr"]},"intentLabels":{"hours":"Öffnungszeiten","address":"Standort","phone":"Telefon","email":"E-Mail","website":"Website","services":"Leistungen","pricing":"Preise"},"answers":{"hours":"Unsere Öffnungszeiten sind {hours}.","address":"Sie finden uns in {address}.","phone":"Sie erreichen uns unter {phone}.","email":"Sie können uns an {email} schreiben.","website":"Unsere Website ist {website}.","services":"Wir bieten {services}.","pricing":"{pricing}"},"days":{"mon":"Mo","tue":"Di","wed":"Mi","thu":"Do","fri":"Fr","sat":"Sa","sun":"So"},"ui":{"launcher":"Chat","launcherOpen":"Chat öffnen","launcherClose":"Chat schließen","title":"Fragen?","placeholder":"Frage eingeben…","send":"Senden","suggestionsLabel":"Häufige Fragen","transcriptLabel":"Unterhaltung","draftNotice":"Der Text dieser Seite ist ein maschineller Entwurf und wurde noch nicht muttersprachlich geprüft."},"sales":{"headline":"Ein Chat für Ihre Website, der aus Ihren eigenen Angaben antwortet.","subhead":"Eine Zeile Code. Keine monatliche Gebühr, kein KI-Abo, keine Daten verlassen Ihre Seite. Er antwortet mit dem, was Sie hinterlegt haben, und sagt deutlich, wenn er etwas nicht weiß.","bullets":["Beantwortet Öffnungszeiten, Leistungen, Preise und Kontaktdaten.","Sagt „weiß ich nicht“ und leitet an Sie weiter, statt etwas zu erfinden.","Läuft im Browser der Besucher, es fällt also nichts pro Gespräch an."],"standardName":"Standard","standardBlurb":"Sie tragen Ihre Angaben selbst ein und erhalten den fertigen Code zum Einfügen.","standardCta":"Standard-Version holen","customName":"Individuell","customBlurb":"Schicken Sie Ihre Website oder Ihre Angaben und Sie erhalten den Chat fertig eingerichtet, in Ihren Farben und Ihrer Ansprache.","customCta":"Individuelle Version holen","truthNote":"Dies ist ein deterministischer FAQ-Bot, kein generativer KI-Agent. Er gibt nur wieder, was Sie hinterlegen.","demoTitle":"Ausprobieren","demoHint":"Das ist der echte Chat, hier auf der Seite, mit dem Beispielbetrieb unten.","notYetForSale":"noch nicht käuflich – es gibt noch keinen Ort für die Auslieferung"},"translated":{"status":"machine-drafted","ui":"machine-drafted","sales":"machine-drafted","note":"Drafted by AION and not yet checked by a native speaker."}},"theme":{"id":"bold","name":"Bold","description":"High-contrast square panel with a wide labelled launcher bar. For trades, workshops and anything read on a phone in daylight.","tokens":{"accent":"#c2410c","accentText":"#ffffff","surface":"#ffffff","surfaceAlt":"#fff4ed","text":"#1b1917","textMuted":"#5c534d","border":"#1b1917","radius":"2px","radiusLauncher":"4px","shadow":"6px 6px 0 rgba(27, 25, 23, 0.9)","font":"'Segoe UI', system-ui, -apple-system, Roboto, Arial, 'Noto Sans', sans-serif","bubbleBot":"#fff4ed","bubbleUser":"#1b1917","bubbleUserText":"#ffffff"},"dark":{"surface":"#1b1917","surfaceAlt":"#2a2521","text":"#f7f2ee","textMuted":"#b7aca4","border":"#f7f2ee","shadow":"6px 6px 0 rgba(247, 242, 238, 0.25)","bubbleBot":"#2a2521","bubbleUser":"#f7f2ee","bubbleUserText":"#1b1917"}}};</script>
+  <script src="../chat-bot.js"></script>
+</body>
+</html>

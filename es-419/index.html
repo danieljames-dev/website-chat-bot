@@ -1,0 +1,72 @@
+<!doctype html>
+<html lang="es-419" dir="ltr">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Website Chat Bot — Un chat para tu sitio web que responde con los datos de tu negocio.</title>
+  <meta name="description" content="Una sola línea de código. Sin mensualidad, sin suscripción de IA y sin enviar datos fuera de tu página. Responde lo que tú le indicaste y avisa con claridad cuando no lo sabe." />
+  <meta name="robots" content="noindex" />
+  <style>
+    :root { color-scheme: light dark; --ink: #16181c; --paper: #ffffff; --muted: #5b626d; --line: #e2e5ea; --accent: #2f6f6a; }
+    @media (prefers-color-scheme: dark) {
+      :root { --ink: #eceff3; --paper: #121417; --muted: #a3abb6; --line: #262a30; }
+    }
+    * { box-sizing: border-box; }
+    body { margin: 0; background: var(--paper); color: var(--ink); font: 16px/1.6 system-ui, -apple-system, &#39;Segoe UI&#39;, Roboto, &#39;Helvetica Neue&#39;, Arial, &#39;Noto Sans&#39;, sans-serif; }
+    .wrap { max-width: 62rem; margin: 0 auto; padding: 2rem 1.25rem 6rem; }
+    .draft { background: #fff5d6; color: #4a3a00; border: 1px solid #e3cf8a; padding: .7rem 1rem; border-radius: 8px; font-size: .9rem; }
+    @media (prefers-color-scheme: dark) { .draft { background: #322a10; color: #f2e3b0; border-color: #5e5024; } }
+    h1 { font-size: clamp(1.7rem, 4.5vw, 2.6rem); line-height: 1.2; margin: 1.5rem 0 .75rem; }
+    .sub { font-size: 1.1rem; color: var(--muted); max-width: 42rem; }
+    ul.points { padding-inline-start: 1.2rem; max-width: 42rem; }
+    .tiers { display: grid; gap: 1rem; grid-template-columns: repeat(auto-fit, minmax(16rem, 1fr)); margin: 2rem 0; }
+    .tier { border: 1px solid var(--line); border-radius: 12px; padding: 1.25rem; background: var(--paper); }
+    .tier h3 { margin: 0 0 .25rem; }
+    .price { font-size: 1.5rem; font-weight: 700; margin: .25rem 0 .75rem; }
+    .buy { display: inline-block; background: var(--accent); color: #fff; text-decoration: none; padding: .7rem 1.1rem; border-radius: 8px; }
+    .unavailable { color: var(--muted); font-size: .95rem; border: 1px dashed var(--line); border-radius: 8px; padding: .6rem .8rem; }
+    .truth { border-inline-start: 3px solid var(--accent); padding-inline-start: .9rem; color: var(--muted); max-width: 42rem; }
+    .demo { border-top: 1px solid var(--line); margin-top: 2.5rem; padding-top: 1.5rem; }
+    footer { color: var(--muted); font-size: .85rem; margin-top: 3rem; border-top: 1px solid var(--line); padding-top: 1rem; }
+    footer a { color: inherit; }
+  </style>
+</head>
+<body>
+  <div class="wrap">
+    <p class="draft" role="note">El texto de esta página es un borrador automático pendiente de revisión por un hablante nativo.</p>
+    <h1>Un chat para tu sitio web que responde con los datos de tu negocio.</h1>
+    <p class="sub">Una sola línea de código. Sin mensualidad, sin suscripción de IA y sin enviar datos fuera de tu página. Responde lo que tú le indicaste y avisa con claridad cuando no lo sabe.</p>
+    <ul class="points">
+        <li>Responde horarios, servicios, precios y datos de contacto.</li>
+        <li>Dice &quot;no lo sé&quot; y pasa la persona contigo en vez de inventar una respuesta.</li>
+        <li>Funciona en el navegador del visitante, así que no se paga por conversación.</li>
+    </ul>
+    <section class="tiers" aria-label="Website Chat Bot">
+      <article class="tier" id="tier-standard">
+        <h3>Estándar</h3>
+        <p class="price">US$19.00</p>
+        <p>Tú cargas los datos de tu negocio y recibes el código listo para pegar en tu sitio.</p>
+        <p class="unavailable" data-state="not-purchasable">US$19.00 — todavía no está a la venta: aún no hay dónde entregarlo</p>
+      </article>
+      <article class="tier" id="tier-custom">
+        <h3>Personalizado</h3>
+        <p class="price">US$49.00</p>
+        <p>Envíanos tu sitio o tus datos y te devolvemos el bot ya cargado, con los colores y el trato de tu negocio.</p>
+        <p class="unavailable" data-state="not-purchasable">US$49.00 — todavía no está a la venta: aún no hay dónde entregarlo</p>
+      </article>
+    </section>
+    <p class="truth">Es un bot de preguntas frecuentes determinista, no un agente de IA generativa. Solo repite los datos que tú le das.</p>
+    <section class="demo">
+      <h2>Pruébalo</h2>
+      <p class="sub">Este es el bot real, funcionando en esta página con el negocio de ejemplo de abajo. — <strong>Panadería La Espiga</strong></p>
+    </section>
+    <footer>
+      <p>Card statements and the checkout page show the Stripe account&#39;s registered business name, which is not the product name.</p>
+      <p><a href="../ar/" hreflang="ar">ar</a> · <a href="../de/" hreflang="de">de</a> · <a href="../en/" hreflang="en">en</a> · <a href="../es-419/" hreflang="es-419">es-419</a> · <a href="../fr/" hreflang="fr">fr</a> · <a href="../hi/" hreflang="hi">hi</a> · <a href="../id/" hreflang="id">id</a> · <a href="../ja/" hreflang="ja">ja</a> · <a href="../pt-BR/" hreflang="pt-BR">pt-BR</a></p>
+      <p><a href="../support.html">Support &amp; delivery</a> · <a href="../privacy.html">Privacy</a></p>
+    </footer>
+  </div>
+  <script>window.WEBSITE_CHAT_BOT = {"business":{"id":"demo-panaderia-es-419","name":"Panadería La Espiga","locale":"es-419","theme":"calm","services":["pan del día","pasteles por encargo","tortas de cumpleaños","café para llevar"],"hours":{"mon":"6:00–19:00","tue":"6:00–19:00","wed":"6:00–19:00","thu":"6:00–19:00","fri":"6:00–20:00","sat":"6:00–20:00","sun":"7:00–13:00"},"address":"Calle Morelos 218, Colonia Centro","phone":"+52 55 1234 5678","whatsapp":"+52 55 1234 5678","email":"hola@ejemplo-panaderia.test","website":"https://ejemplo-panaderia.test","pricing":"El pan del día empieza en $18 y las tortas por encargo se cotizan según el tamaño.","faqs":[{"id":"encargos","q":"¿Con cuánta anticipación debo pedir una torta?","keywords":["encargo","pedido","anticipacion","torta","pastel"],"a":"Los pasteles por encargo se piden con dos días de anticipación, y las tortas grandes con tres."},{"id":"entrega","q":"¿Hacen entregas a domicilio?","keywords":["entrega","domicilio","envio","reparto"],"a":"Hacemos entregas dentro de la colonia por WhatsApp; fuera de esa zona se recoge en la tienda."},{"id":"sin-gluten","q":"¿Tienen pan sin gluten?","keywords":["gluten","celiaco","integral","alergia"],"a":"Tenemos pan sin gluten los viernes y sábados, en cantidad limitada."},{"id":"pago","q":"¿Aceptan tarjeta?","keywords":["tarjeta","pago","efectivo","transferencia"],"a":"Aceptamos efectivo, tarjeta y transferencia."}],"notes":"Negocio ficticio de demostración. Todos los datos son inventados."},"locale":{"locale":"es-419","language":"Español (Latinoamérica)","direction":"ltr","greeting":"Hola, bienvenido a {name}. Pregúntame por nuestros servicios, horarios o cómo contactarnos.","greetingGeneric":"Hola. Pregúntame por nuestros servicios, horarios o cómo contactarnos.","unknown":"Eso no está en mis notas y prefiero no inventarlo. El equipo te lo puede responder bien:","disambiguate":"Encontré más de una cosa que puede coincidir. ¿Cuál buscabas?","listSeparator":", ","actions":{"call":"Llamar","whatsapp":"WhatsApp","email":"Correo","contact":"Contáctanos","website":"Ver el sitio"},"intents":{"hours":["horario","horarios","abren","abierto","cierran","cierre","a que hora","atienden","hoy"],"address":["direccion","donde estan","ubicacion","como llegar","sucursal","estacionamiento"],"phone":["telefono","numero","llamar","celular"],"email":["correo","email","mail","escribir"],"website":["sitio","pagina","web","internet"],"services":["servicios","que hacen","que ofrecen","trabajos","hacen"],"pricing":["precio","precios","cuanto cuesta","costo","cotizacion","presupuesto","tarifa"]},"intentLabels":{"hours":"Horarios","address":"Dónde estamos","phone":"Teléfono","email":"Correo","website":"Sitio web","services":"Qué hacemos","pricing":"Precios"},"answers":{"hours":"Nuestro horario es {hours}.","address":"Nos encuentras en {address}.","phone":"Puedes llamarnos al {phone}.","email":"Puedes escribirnos a {email}.","website":"Nuestro sitio es {website}.","services":"Hacemos {services}.","pricing":"{pricing}"},"days":{"mon":"Lun","tue":"Mar","wed":"Mié","thu":"Jue","fri":"Vie","sat":"Sáb","sun":"Dom"},"ui":{"launcher":"Chat","launcherOpen":"Abrir el chat","launcherClose":"Cerrar el chat","title":"¿Preguntas?","placeholder":"Escribe tu pregunta…","send":"Enviar","suggestionsLabel":"Preguntas frecuentes","transcriptLabel":"Conversación","draftNotice":"El texto de esta página es un borrador automático pendiente de revisión por un hablante nativo."},"sales":{"headline":"Un chat para tu sitio web que responde con los datos de tu negocio.","subhead":"Una sola línea de código. Sin mensualidad, sin suscripción de IA y sin enviar datos fuera de tu página. Responde lo que tú le indicaste y avisa con claridad cuando no lo sabe.","bullets":["Responde horarios, servicios, precios y datos de contacto.","Dice \"no lo sé\" y pasa la persona contigo en vez de inventar una respuesta.","Funciona en el navegador del visitante, así que no se paga por conversación."],"standardName":"Estándar","standardBlurb":"Tú cargas los datos de tu negocio y recibes el código listo para pegar en tu sitio.","standardCta":"Quiero el bot Estándar","customName":"Personalizado","customBlurb":"Envíanos tu sitio o tus datos y te devolvemos el bot ya cargado, con los colores y el trato de tu negocio.","customCta":"Quiero el bot Personalizado","truthNote":"Es un bot de preguntas frecuentes determinista, no un agente de IA generativa. Solo repite los datos que tú le das.","demoTitle":"Pruébalo","demoHint":"Este es el bot real, funcionando en esta página con el negocio de ejemplo de abajo.","notYetForSale":"todavía no está a la venta: aún no hay dónde entregarlo"},"translated":{"status":"machine-drafted","ui":"machine-drafted","sales":"machine-drafted","note":"Drafted by AION and not yet checked by a native speaker. Neutral Latin American Spanish was targeted; Spain-specific wording was deliberately avoided."}},"theme":{"id":"calm","name":"Calm","description":"Soft neutral panel with a rounded launcher. Reads as a normal support widget on almost any site.","tokens":{"accent":"#2f6f6a","accentText":"#ffffff","surface":"#ffffff","surfaceAlt":"#f4f6f6","text":"#16221f","textMuted":"#5b6b68","border":"#d7e0de","radius":"14px","radiusLauncher":"999px","shadow":"0 10px 30px rgba(22, 34, 31, 0.16)","font":"system-ui, -apple-system, 'Segoe UI', Roboto, 'Helvetica Neue', Arial, 'Noto Sans', sans-serif","bubbleBot":"#f4f6f6","bubbleUser":"#2f6f6a","bubbleUserText":"#ffffff"},"dark":{"surface":"#131a19","surfaceAlt":"#1c2523","text":"#e8efed","textMuted":"#9fb0ad","border":"#2b3634","bubbleBot":"#1c2523"}}};</script>
+  <script src="../chat-bot.js"></script>
+</body>
+</html>

@@ -1,0 +1,72 @@
+<!doctype html>
+<html lang="hi" dir="ltr">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Website Chat Bot — आपकी वेबसाइट के लिए एक चैट, जो आपकी ही जानकारी से जवाब देता है।</title>
+  <meta name="description" content="कोड की एक लाइन। कोई मासिक शुल्क नहीं, कोई एआई सदस्यता नहीं, और डेटा आपके पेज से बाहर नहीं जाता। जो आपने भरा वही बताता है, और न पता हो तो साफ़ कह देता है।" />
+  <meta name="robots" content="noindex" />
+  <style>
+    :root { color-scheme: light dark; --ink: #16181c; --paper: #ffffff; --muted: #5b626d; --line: #e2e5ea; --accent: #2f6f6a; }
+    @media (prefers-color-scheme: dark) {
+      :root { --ink: #eceff3; --paper: #121417; --muted: #a3abb6; --line: #262a30; }
+    }
+    * { box-sizing: border-box; }
+    body { margin: 0; background: var(--paper); color: var(--ink); font: 16px/1.6 system-ui, -apple-system, &#39;Segoe UI&#39;, Roboto, &#39;Helvetica Neue&#39;, Arial, &#39;Noto Sans&#39;, sans-serif; }
+    .wrap { max-width: 62rem; margin: 0 auto; padding: 2rem 1.25rem 6rem; }
+    .draft { background: #fff5d6; color: #4a3a00; border: 1px solid #e3cf8a; padding: .7rem 1rem; border-radius: 8px; font-size: .9rem; }
+    @media (prefers-color-scheme: dark) { .draft { background: #322a10; color: #f2e3b0; border-color: #5e5024; } }
+    h1 { font-size: clamp(1.7rem, 4.5vw, 2.6rem); line-height: 1.2; margin: 1.5rem 0 .75rem; }
+    .sub { font-size: 1.1rem; color: var(--muted); max-width: 42rem; }
+    ul.points { padding-inline-start: 1.2rem; max-width: 42rem; }
+    .tiers { display: grid; gap: 1rem; grid-template-columns: repeat(auto-fit, minmax(16rem, 1fr)); margin: 2rem 0; }
+    .tier { border: 1px solid var(--line); border-radius: 12px; padding: 1.25rem; background: var(--paper); }
+    .tier h3 { margin: 0 0 .25rem; }
+    .price { font-size: 1.5rem; font-weight: 700; margin: .25rem 0 .75rem; }
+    .buy { display: inline-block; background: var(--accent); color: #fff; text-decoration: none; padding: .7rem 1.1rem; border-radius: 8px; }
+    .unavailable { color: var(--muted); font-size: .95rem; border: 1px dashed var(--line); border-radius: 8px; padding: .6rem .8rem; }
+    .truth { border-inline-start: 3px solid var(--accent); padding-inline-start: .9rem; color: var(--muted); max-width: 42rem; }
+    .demo { border-top: 1px solid var(--line); margin-top: 2.5rem; padding-top: 1.5rem; }
+    footer { color: var(--muted); font-size: .85rem; margin-top: 3rem; border-top: 1px solid var(--line); padding-top: 1rem; }
+    footer a { color: inherit; }
+  </style>
+</head>
+<body>
+  <div class="wrap">
+    <p class="draft" role="note">इस पेज का अनुवाद मशीन से बना मसौदा है, अभी किसी मूल वक्ता ने जाँचा नहीं है।</p>
+    <h1>आपकी वेबसाइट के लिए एक चैट, जो आपकी ही जानकारी से जवाब देता है।</h1>
+    <p class="sub">कोड की एक लाइन। कोई मासिक शुल्क नहीं, कोई एआई सदस्यता नहीं, और डेटा आपके पेज से बाहर नहीं जाता। जो आपने भरा वही बताता है, और न पता हो तो साफ़ कह देता है।</p>
+    <ul class="points">
+        <li>समय, सेवाएँ, कीमत और संपर्क की जानकारी देता है।</li>
+        <li>जवाब गढ़ने के बजाय «मुझे नहीं पता» कहकर ग्राहक को आप तक भेजता है।</li>
+        <li>विज़िटर के ब्राउज़र में चलता है, इसलिए हर बातचीत का खर्च नहीं।</li>
+    </ul>
+    <section class="tiers" aria-label="Website Chat Bot">
+      <article class="tier" id="tier-standard">
+        <h3>स्टैंडर्ड</h3>
+        <p class="price">US$19.00</p>
+        <p>आप अपनी जानकारी भरते हैं और वेबसाइट में चिपकाने लायक तैयार कोड पाते हैं।</p>
+        <p class="unavailable" data-state="not-purchasable">US$19.00 — अभी बिक्री के लिए नहीं — इसे देने की जगह अभी तैयार नहीं है</p>
+      </article>
+      <article class="tier" id="tier-custom">
+        <h3>कस्टम</h3>
+        <p class="price">US$49.00</p>
+        <p>अपनी वेबसाइट या जानकारी भेजिए और तैयार, आपके रंग-ढंग में ढला चैट वापस पाइए।</p>
+        <p class="unavailable" data-state="not-purchasable">US$49.00 — अभी बिक्री के लिए नहीं — इसे देने की जगह अभी तैयार नहीं है</p>
+      </article>
+    </section>
+    <p class="truth">यह तय नियमों पर चलने वाला एफ़एक्यू बॉट है, जनरेटिव एआई एजेंट नहीं। यह वही दोहराता है जो आप देते हैं।</p>
+    <section class="demo">
+      <h2>आज़माइए</h2>
+      <p class="sub">यह असली बॉट है, नीचे दिए उदाहरण व्यवसाय के साथ इसी पेज पर चल रहा है। — <strong>दीपक कोचिंग क्लासेज़</strong></p>
+    </section>
+    <footer>
+      <p>Card statements and the checkout page show the Stripe account&#39;s registered business name, which is not the product name.</p>
+      <p><a href="../ar/" hreflang="ar">ar</a> · <a href="../de/" hreflang="de">de</a> · <a href="../en/" hreflang="en">en</a> · <a href="../es-419/" hreflang="es-419">es-419</a> · <a href="../fr/" hreflang="fr">fr</a> · <a href="../hi/" hreflang="hi">hi</a> · <a href="../id/" hreflang="id">id</a> · <a href="../ja/" hreflang="ja">ja</a> · <a href="../pt-BR/" hreflang="pt-BR">pt-BR</a></p>
+      <p><a href="../support.html">Support &amp; delivery</a> · <a href="../privacy.html">Privacy</a></p>
+    </footer>
+  </div>
+  <script>window.WEBSITE_CHAT_BOT = {"business":{"id":"demo-coaching-hi","name":"दीपक कोचिंग क्लासेज़","locale":"hi","theme":"calm","services":["कक्षा 9–12 गणित","विज्ञान","बोर्ड परीक्षा तैयारी","साप्ताहिक टेस्ट"],"hours":{"mon":"15:00–20:00","tue":"15:00–20:00","wed":"15:00–20:00","thu":"15:00–20:00","fri":"15:00–20:00","sat":"10:00–14:00"},"address":"दुकान नं. 4, गांधी मार्ग, सिविल लाइंस","phone":"+91 98100 12345","whatsapp":"+91 98100 12345","email":"info@example-coaching.test","website":"https://example-coaching.test","pricing":"मासिक शुल्क कक्षा के अनुसार अलग है; पहली कक्षा नि:शुल्क है और शुल्क उसी समय बताया जाता है।","faqs":[{"id":"batch","q":"एक बैच में कितने छात्र होते हैं?","keywords":["बैच","छात्र","संख्या","कितने"],"a":"एक बैच में अधिकतम 15 छात्र होते हैं, ताकि हर छात्र पर ध्यान दिया जा सके।"},{"id":"demo","q":"क्या पहले एक कक्षा देख सकते हैं?","keywords":["डेमो","पहली कक्षा","ट्रायल","देखना"],"a":"जी हाँ, पहली कक्षा नि:शुल्क है। आने से पहले फ़ोन या व्हाट्सऐप पर बता दें।"},{"id":"online","q":"क्या ऑनलाइन कक्षाएँ भी हैं?","keywords":["ऑनलाइन","वीडियो","घर से"],"a":"फ़िलहाल कक्षाएँ केवल केंद्र पर होती हैं। ऑनलाइन बैच अभी उपलब्ध नहीं है।"}],"notes":"यह एक काल्पनिक प्रदर्शन व्यवसाय है। सभी जानकारी उदाहरण के लिए बनाई गई है।"},"locale":{"locale":"hi","language":"हिन्दी","direction":"ltr","greeting":"नमस्ते, {name} में आपका स्वागत है। हमारी सेवाओं, समय या संपर्क के बारे में पूछिए।","greetingGeneric":"नमस्ते। हमारी सेवाओं, समय या संपर्क के बारे में पूछिए।","unknown":"यह मेरी जानकारी में नहीं है, और अंदाज़ा लगाना ठीक नहीं होगा। टीम आपको सही जवाब दे सकती है:","disambiguate":"इससे एक से ज़्यादा जवाब मिलते हैं। आपका मतलब किससे था?","listSeparator":", ","actions":{"call":"कॉल करें","whatsapp":"व्हाट्सऐप","email":"ईमेल","contact":"संपर्क करें","website":"वेबसाइट देखें"},"intents":{"hours":["समय","खुलने का समय","कब खुलते","बंद","आज","टाइमिंग"],"address":["पता","कहाँ हैं","लोकेशन","कैसे पहुँचें","दुकान"],"phone":["फोन","नंबर","कॉल","मोबाइल"],"email":["ईमेल","मेल","लिखना"],"website":["वेबसाइट","साइट","पेज"],"services":["सेवाएँ","क्या करते हैं","काम","सुविधा"],"pricing":["कीमत","दाम","कितना","खर्च","रेट","शुल्क"]},"intentLabels":{"hours":"खुलने का समय","address":"हमारा पता","phone":"फोन नंबर","email":"ईमेल","website":"वेबसाइट","services":"हमारी सेवाएँ","pricing":"कीमत"},"answers":{"hours":"हमारा समय {hours} है।","address":"हम {address} पर हैं।","phone":"आप {phone} पर कॉल कर सकते हैं।","email":"आप {email} पर लिख सकते हैं।","website":"हमारी वेबसाइट {website} है।","services":"हम {services} करते हैं।","pricing":"{pricing}"},"days":{"mon":"सोम","tue":"मंगल","wed":"बुध","thu":"गुरु","fri":"शुक्र","sat":"शनि","sun":"रवि"},"ui":{"launcher":"चैट","launcherOpen":"चैट खोलें","launcherClose":"चैट बंद करें","title":"कोई सवाल?","placeholder":"अपना सवाल लिखिए…","send":"भेजें","suggestionsLabel":"आम सवाल","transcriptLabel":"बातचीत","draftNotice":"इस पेज का अनुवाद मशीन से बना मसौदा है, अभी किसी मूल वक्ता ने जाँचा नहीं है।"},"sales":{"headline":"आपकी वेबसाइट के लिए एक चैट, जो आपकी ही जानकारी से जवाब देता है।","subhead":"कोड की एक लाइन। कोई मासिक शुल्क नहीं, कोई एआई सदस्यता नहीं, और डेटा आपके पेज से बाहर नहीं जाता। जो आपने भरा वही बताता है, और न पता हो तो साफ़ कह देता है।","bullets":["समय, सेवाएँ, कीमत और संपर्क की जानकारी देता है।","जवाब गढ़ने के बजाय «मुझे नहीं पता» कहकर ग्राहक को आप तक भेजता है।","विज़िटर के ब्राउज़र में चलता है, इसलिए हर बातचीत का खर्च नहीं।"],"standardName":"स्टैंडर्ड","standardBlurb":"आप अपनी जानकारी भरते हैं और वेबसाइट में चिपकाने लायक तैयार कोड पाते हैं।","standardCta":"स्टैंडर्ड बॉट लें","customName":"कस्टम","customBlurb":"अपनी वेबसाइट या जानकारी भेजिए और तैयार, आपके रंग-ढंग में ढला चैट वापस पाइए।","customCta":"कस्टम बॉट लें","truthNote":"यह तय नियमों पर चलने वाला एफ़एक्यू बॉट है, जनरेटिव एआई एजेंट नहीं। यह वही दोहराता है जो आप देते हैं।","demoTitle":"आज़माइए","demoHint":"यह असली बॉट है, नीचे दिए उदाहरण व्यवसाय के साथ इसी पेज पर चल रहा है।","notYetForSale":"अभी बिक्री के लिए नहीं — इसे देने की जगह अभी तैयार नहीं है"},"translated":{"status":"machine-drafted","ui":"machine-drafted","sales":"machine-drafted","note":"Drafted by AION and not yet checked by a native speaker."}},"theme":{"id":"calm","name":"Calm","description":"Soft neutral panel with a rounded launcher. Reads as a normal support widget on almost any site.","tokens":{"accent":"#2f6f6a","accentText":"#ffffff","surface":"#ffffff","surfaceAlt":"#f4f6f6","text":"#16221f","textMuted":"#5b6b68","border":"#d7e0de","radius":"14px","radiusLauncher":"999px","shadow":"0 10px 30px rgba(22, 34, 31, 0.16)","font":"system-ui, -apple-system, 'Segoe UI', Roboto, 'Helvetica Neue', Arial, 'Noto Sans', sans-serif","bubbleBot":"#f4f6f6","bubbleUser":"#2f6f6a","bubbleUserText":"#ffffff"},"dark":{"surface":"#131a19","surfaceAlt":"#1c2523","text":"#e8efed","textMuted":"#9fb0ad","border":"#2b3634","bubbleBot":"#1c2523"}}};</script>
+  <script src="../chat-bot.js"></script>
+</body>
+</html>

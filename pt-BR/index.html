@@ -1,0 +1,72 @@
+<!doctype html>
+<html lang="pt-BR" dir="ltr">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Website Chat Bot — Um chat para o seu site que responde com os dados do seu negócio.</title>
+  <meta name="description" content="Uma linha de código. Sem mensalidade, sem assinatura de IA e sem enviar dados para fora da sua página. Responde o que você cadastrou e avisa quando não sabe." />
+  <meta name="robots" content="noindex" />
+  <style>
+    :root { color-scheme: light dark; --ink: #16181c; --paper: #ffffff; --muted: #5b626d; --line: #e2e5ea; --accent: #1f2937; }
+    @media (prefers-color-scheme: dark) {
+      :root { --ink: #eceff3; --paper: #121417; --muted: #a3abb6; --line: #262a30; }
+    }
+    * { box-sizing: border-box; }
+    body { margin: 0; background: var(--paper); color: var(--ink); font: 16px/1.6 Georgia, &#39;Times New Roman&#39;, &#39;Noto Serif&#39;, serif; }
+    .wrap { max-width: 62rem; margin: 0 auto; padding: 2rem 1.25rem 6rem; }
+    .draft { background: #fff5d6; color: #4a3a00; border: 1px solid #e3cf8a; padding: .7rem 1rem; border-radius: 8px; font-size: .9rem; }
+    @media (prefers-color-scheme: dark) { .draft { background: #322a10; color: #f2e3b0; border-color: #5e5024; } }
+    h1 { font-size: clamp(1.7rem, 4.5vw, 2.6rem); line-height: 1.2; margin: 1.5rem 0 .75rem; }
+    .sub { font-size: 1.1rem; color: var(--muted); max-width: 42rem; }
+    ul.points { padding-inline-start: 1.2rem; max-width: 42rem; }
+    .tiers { display: grid; gap: 1rem; grid-template-columns: repeat(auto-fit, minmax(16rem, 1fr)); margin: 2rem 0; }
+    .tier { border: 1px solid var(--line); border-radius: 12px; padding: 1.25rem; background: var(--paper); }
+    .tier h3 { margin: 0 0 .25rem; }
+    .price { font-size: 1.5rem; font-weight: 700; margin: .25rem 0 .75rem; }
+    .buy { display: inline-block; background: var(--accent); color: #fff; text-decoration: none; padding: .7rem 1.1rem; border-radius: 8px; }
+    .unavailable { color: var(--muted); font-size: .95rem; border: 1px dashed var(--line); border-radius: 8px; padding: .6rem .8rem; }
+    .truth { border-inline-start: 3px solid var(--accent); padding-inline-start: .9rem; color: var(--muted); max-width: 42rem; }
+    .demo { border-top: 1px solid var(--line); margin-top: 2.5rem; padding-top: 1.5rem; }
+    footer { color: var(--muted); font-size: .85rem; margin-top: 3rem; border-top: 1px solid var(--line); padding-top: 1rem; }
+    footer a { color: inherit; }
+  </style>
+</head>
+<body>
+  <div class="wrap">
+    <p class="draft" role="note">O texto desta página é um rascunho automático, ainda sem revisão de um falante nativo.</p>
+    <h1>Um chat para o seu site que responde com os dados do seu negócio.</h1>
+    <p class="sub">Uma linha de código. Sem mensalidade, sem assinatura de IA e sem enviar dados para fora da sua página. Responde o que você cadastrou e avisa quando não sabe.</p>
+    <ul class="points">
+        <li>Responde horário, serviços, preços e contato.</li>
+        <li>Diz &quot;não sei&quot; e passa a pessoa para você em vez de inventar.</li>
+        <li>Roda no navegador do visitante, então não se paga por conversa.</li>
+    </ul>
+    <section class="tiers" aria-label="Website Chat Bot">
+      <article class="tier" id="tier-standard">
+        <h3>Padrão</h3>
+        <p class="price">US$19.00</p>
+        <p>Você preenche os dados do seu negócio e recebe o código pronto para colar no site.</p>
+        <p class="unavailable" data-state="not-purchasable">US$19.00 — ainda não está à venda: ainda não há onde entregar</p>
+      </article>
+      <article class="tier" id="tier-custom">
+        <h3>Personalizado</h3>
+        <p class="price">US$49.00</p>
+        <p>Mande seu site ou seus dados e devolvemos o bot já preenchido, com as cores e o jeito do seu negócio.</p>
+        <p class="unavailable" data-state="not-purchasable">US$49.00 — ainda não está à venda: ainda não há onde entregar</p>
+      </article>
+    </section>
+    <p class="truth">É um bot de perguntas frequentes determinístico, não um agente de IA generativa. Ele só repete o que você informou.</p>
+    <section class="demo">
+      <h2>Experimente</h2>
+      <p class="sub">Este é o bot de verdade, rodando nesta página com o negócio de exemplo abaixo. — <strong>Salão Rua das Palmeiras</strong></p>
+    </section>
+    <footer>
+      <p>Card statements and the checkout page show the Stripe account&#39;s registered business name, which is not the product name.</p>
+      <p><a href="../ar/" hreflang="ar">ar</a> · <a href="../de/" hreflang="de">de</a> · <a href="../en/" hreflang="en">en</a> · <a href="../es-419/" hreflang="es-419">es-419</a> · <a href="../fr/" hreflang="fr">fr</a> · <a href="../hi/" hreflang="hi">hi</a> · <a href="../id/" hreflang="id">id</a> · <a href="../ja/" hreflang="ja">ja</a> · <a href="../pt-BR/" hreflang="pt-BR">pt-BR</a></p>
+      <p><a href="../support.html">Support &amp; delivery</a> · <a href="../privacy.html">Privacy</a></p>
+    </footer>
+  </div>
+  <script>window.WEBSITE_CHAT_BOT = {"business":{"id":"demo-salao-pt-br","name":"Salão Rua das Palmeiras","locale":"pt-BR","theme":"minimal","services":["corte feminino e masculino","coloração","hidratação","penteado para festa"],"hours":{"tue":"09:00–19:00","wed":"09:00–19:00","thu":"09:00–20:00","fri":"09:00–20:00","sat":"08:00–18:00"},"address":"Rua das Palmeiras, 512 — Vila Nova","phone":"+55 11 98765 4321","whatsapp":"+55 11 98765 4321","email":"contato@exemplo-salao.test","website":"https://exemplo-salao.test","pricing":"O corte começa em R$ 60 e a coloração é orçada na avaliação, sem compromisso.","faqs":[{"id":"agendamento","q":"Precisa agendar?","keywords":["agendar","agendamento","marcar","horario marcado","fila"],"a":"Atendemos com hora marcada. O jeito mais rápido de agendar é pelo WhatsApp."},{"id":"cancelamento","q":"Como faço para cancelar ou remarcar?","keywords":["cancelar","remarcar","desmarcar","adiar"],"a":"É só avisar pelo WhatsApp com pelo menos 4 horas de antecedência, sem custo."},{"id":"duracao","q":"Quanto tempo demora uma coloração?","keywords":["demora","tempo","duracao","coloracao"],"a":"Uma coloração leva de duas a três horas, dependendo do comprimento do cabelo."},{"id":"pagamento","q":"Quais formas de pagamento vocês aceitam?","keywords":["pagamento","pix","cartao","dinheiro"],"a":"Aceitamos Pix, cartão e dinheiro."}],"notes":"Negócio fictício de demonstração. Todos os dados são inventados."},"locale":{"locale":"pt-BR","language":"Português (Brasil)","direction":"ltr","greeting":"Oi! Bem-vindo à {name}. Pergunte sobre nossos serviços, horários ou como falar com a gente.","greetingGeneric":"Oi! Pergunte sobre nossos serviços, horários ou como falar com a gente.","unknown":"Isso não está nas minhas anotações e prefiro não inventar. A equipe responde certinho:","disambiguate":"Encontrei mais de uma coisa parecida. Qual delas você quis dizer?","listSeparator":", ","actions":{"call":"Ligar","whatsapp":"WhatsApp","email":"E-mail","contact":"Fale com a gente","website":"Ver o site"},"intents":{"hours":["horario","horarios","abre","aberto","fecha","que horas","funcionamento","hoje"],"address":["endereco","onde fica","localizacao","como chegar","unidade","estacionamento"],"phone":["telefone","numero","ligar","celular"],"email":["email","e-mail","correio","escrever"],"website":["site","pagina","web","internet"],"services":["servicos","o que fazem","o que voces fazem","atendem","fazem"],"pricing":["preco","precos","quanto custa","custo","orcamento","valor","taxa"]},"intentLabels":{"hours":"Horários","address":"Onde ficamos","phone":"Telefone","email":"E-mail","website":"Site","services":"O que fazemos","pricing":"Preços"},"answers":{"hours":"Nosso horário é {hours}.","address":"A gente fica em {address}.","phone":"Você pode ligar para {phone}.","email":"Você pode escrever para {email}.","website":"Nosso site é {website}.","services":"A gente faz {services}.","pricing":"{pricing}"},"days":{"mon":"Seg","tue":"Ter","wed":"Qua","thu":"Qui","fri":"Sex","sat":"Sáb","sun":"Dom"},"ui":{"launcher":"Chat","launcherOpen":"Abrir o chat","launcherClose":"Fechar o chat","title":"Dúvidas?","placeholder":"Escreva sua pergunta…","send":"Enviar","suggestionsLabel":"Perguntas frequentes","transcriptLabel":"Conversa","draftNotice":"O texto desta página é um rascunho automático, ainda sem revisão de um falante nativo."},"sales":{"headline":"Um chat para o seu site que responde com os dados do seu negócio.","subhead":"Uma linha de código. Sem mensalidade, sem assinatura de IA e sem enviar dados para fora da sua página. Responde o que você cadastrou e avisa quando não sabe.","bullets":["Responde horário, serviços, preços e contato.","Diz \"não sei\" e passa a pessoa para você em vez de inventar.","Roda no navegador do visitante, então não se paga por conversa."],"standardName":"Padrão","standardBlurb":"Você preenche os dados do seu negócio e recebe o código pronto para colar no site.","standardCta":"Quero o bot Padrão","customName":"Personalizado","customBlurb":"Mande seu site ou seus dados e devolvemos o bot já preenchido, com as cores e o jeito do seu negócio.","customCta":"Quero o bot Personalizado","truthNote":"É um bot de perguntas frequentes determinístico, não um agente de IA generativa. Ele só repete o que você informou.","demoTitle":"Experimente","demoHint":"Este é o bot de verdade, rodando nesta página com o negócio de exemplo abaixo.","notYetForSale":"ainda não está à venda: ainda não há onde entregar"},"translated":{"status":"machine-drafted","ui":"machine-drafted","sales":"machine-drafted","note":"Drafted by AION and not yet checked by a native speaker. Brazilian Portuguese was targeted; European Portuguese wording was deliberately avoided."}},"theme":{"id":"minimal","name":"Minimal","description":"Borderless, typographic, almost no chrome. For clinics, studios and sites that already have a strong design.","tokens":{"accent":"#1f2937","accentText":"#ffffff","surface":"#fdfdfc","surfaceAlt":"#f2f2f0","text":"#111827","textMuted":"#6b7280","border":"#e5e5e2","radius":"6px","radiusLauncher":"6px","shadow":"0 1px 2px rgba(17, 24, 39, 0.08), 0 8px 24px rgba(17, 24, 39, 0.06)","font":"Georgia, 'Times New Roman', 'Noto Serif', serif","bubbleBot":"#f2f2f0","bubbleUser":"#1f2937","bubbleUserText":"#ffffff"},"dark":{"surface":"#111312","surfaceAlt":"#1a1d1c","text":"#f3f4f2","textMuted":"#9ca3a0","border":"#262a29","bubbleBot":"#1a1d1c"}}};</script>
+  <script src="../chat-bot.js"></script>
+</body>
+</html>

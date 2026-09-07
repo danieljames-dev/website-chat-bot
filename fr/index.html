@@ -1,0 +1,72 @@
+<!doctype html>
+<html lang="fr" dir="ltr">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Website Chat Bot — Un chat pour votre site qui répond à partir de vos propres informations.</title>
+  <meta name="description" content="Une seule ligne de code. Sans abonnement mensuel, sans abonnement IA et sans envoi de données hors de votre page. Il répond ce que vous avez saisi et le dit clairement quand il ne sait pas." />
+  <meta name="robots" content="noindex" />
+  <style>
+    :root { color-scheme: light dark; --ink: #16181c; --paper: #ffffff; --muted: #5b626d; --line: #e2e5ea; --accent: #1f2937; }
+    @media (prefers-color-scheme: dark) {
+      :root { --ink: #eceff3; --paper: #121417; --muted: #a3abb6; --line: #262a30; }
+    }
+    * { box-sizing: border-box; }
+    body { margin: 0; background: var(--paper); color: var(--ink); font: 16px/1.6 Georgia, &#39;Times New Roman&#39;, &#39;Noto Serif&#39;, serif; }
+    .wrap { max-width: 62rem; margin: 0 auto; padding: 2rem 1.25rem 6rem; }
+    .draft { background: #fff5d6; color: #4a3a00; border: 1px solid #e3cf8a; padding: .7rem 1rem; border-radius: 8px; font-size: .9rem; }
+    @media (prefers-color-scheme: dark) { .draft { background: #322a10; color: #f2e3b0; border-color: #5e5024; } }
+    h1 { font-size: clamp(1.7rem, 4.5vw, 2.6rem); line-height: 1.2; margin: 1.5rem 0 .75rem; }
+    .sub { font-size: 1.1rem; color: var(--muted); max-width: 42rem; }
+    ul.points { padding-inline-start: 1.2rem; max-width: 42rem; }
+    .tiers { display: grid; gap: 1rem; grid-template-columns: repeat(auto-fit, minmax(16rem, 1fr)); margin: 2rem 0; }
+    .tier { border: 1px solid var(--line); border-radius: 12px; padding: 1.25rem; background: var(--paper); }
+    .tier h3 { margin: 0 0 .25rem; }
+    .price { font-size: 1.5rem; font-weight: 700; margin: .25rem 0 .75rem; }
+    .buy { display: inline-block; background: var(--accent); color: #fff; text-decoration: none; padding: .7rem 1.1rem; border-radius: 8px; }
+    .unavailable { color: var(--muted); font-size: .95rem; border: 1px dashed var(--line); border-radius: 8px; padding: .6rem .8rem; }
+    .truth { border-inline-start: 3px solid var(--accent); padding-inline-start: .9rem; color: var(--muted); max-width: 42rem; }
+    .demo { border-top: 1px solid var(--line); margin-top: 2.5rem; padding-top: 1.5rem; }
+    footer { color: var(--muted); font-size: .85rem; margin-top: 3rem; border-top: 1px solid var(--line); padding-top: 1rem; }
+    footer a { color: inherit; }
+  </style>
+</head>
+<body>
+  <div class="wrap">
+    <p class="draft" role="note">Le texte de cette page est une ébauche automatique en attente de relecture par un locuteur natif.</p>
+    <h1>Un chat pour votre site qui répond à partir de vos propres informations.</h1>
+    <p class="sub">Une seule ligne de code. Sans abonnement mensuel, sans abonnement IA et sans envoi de données hors de votre page. Il répond ce que vous avez saisi et le dit clairement quand il ne sait pas.</p>
+    <ul class="points">
+        <li>Répond sur vos horaires, vos prestations, vos tarifs et vos coordonnées.</li>
+        <li>Dit « je ne sais pas » et transmet le visiteur plutôt que d&#39;inventer.</li>
+        <li>Fonctionne dans le navigateur du visiteur : rien à payer par conversation.</li>
+    </ul>
+    <section class="tiers" aria-label="Website Chat Bot">
+      <article class="tier" id="tier-standard">
+        <h3>Standard</h3>
+        <p class="price">US$19.00</p>
+        <p>Vous saisissez vos informations et recevez le code prêt à coller sur votre site.</p>
+        <p class="unavailable" data-state="not-purchasable">US$19.00 — pas encore en vente : il n&#39;y a pas encore d&#39;endroit où le livrer</p>
+      </article>
+      <article class="tier" id="tier-custom">
+        <h3>Sur mesure</h3>
+        <p class="price">US$49.00</p>
+        <p>Envoyez votre site ou vos informations et recevez le chat déjà rempli, aux couleurs et au ton de votre activité.</p>
+        <p class="unavailable" data-state="not-purchasable">US$49.00 — pas encore en vente : il n&#39;y a pas encore d&#39;endroit où le livrer</p>
+      </article>
+    </section>
+    <p class="truth">Il s&#39;agit d&#39;un bot de questions fréquentes déterministe, pas d&#39;un agent d&#39;IA générative. Il ne répète que ce que vous lui fournissez.</p>
+    <section class="demo">
+      <h2>Essayez</h2>
+      <p class="sub">Voici le vrai chat, en fonctionnement sur cette page avec l&#39;exemple ci-dessous. — <strong>Boulangerie du Pont Neuf</strong></p>
+    </section>
+    <footer>
+      <p>Card statements and the checkout page show the Stripe account&#39;s registered business name, which is not the product name.</p>
+      <p><a href="../ar/" hreflang="ar">ar</a> · <a href="../de/" hreflang="de">de</a> · <a href="../en/" hreflang="en">en</a> · <a href="../es-419/" hreflang="es-419">es-419</a> · <a href="../fr/" hreflang="fr">fr</a> · <a href="../hi/" hreflang="hi">hi</a> · <a href="../id/" hreflang="id">id</a> · <a href="../ja/" hreflang="ja">ja</a> · <a href="../pt-BR/" hreflang="pt-BR">pt-BR</a></p>
+      <p><a href="../support.html">Support &amp; delivery</a> · <a href="../privacy.html">Privacy</a></p>
+    </footer>
+  </div>
+  <script>window.WEBSITE_CHAT_BOT = {"business":{"id":"demo-boulangerie-fr","name":"Boulangerie du Pont Neuf","locale":"fr","theme":"minimal","services":["pains au levain","viennoiseries","gâteaux sur commande","sandwichs du midi"],"hours":{"tue":"07:00–19:30","wed":"07:00–19:30","thu":"07:00–19:30","fri":"07:00–19:30","sat":"07:00–19:30","sun":"07:30–13:00"},"address":"8 rue du Pont Neuf","phone":"+33 1 23 45 67 89","email":"bonjour@exemple-boulangerie.test","website":"https://exemple-boulangerie.test","pricing":"La baguette tradition est à 1,30 € et les gâteaux sur commande sont devisés selon le nombre de parts.","faqs":[{"id":"commande","q":"Combien de temps à l'avance faut-il commander un gâteau ?","keywords":["commande","commander","gateau","avance","delai"],"a":"Comptez 48 heures pour un gâteau sur commande, et 72 heures pour les pièces montées."},{"id":"fermeture","q":"Êtes-vous ouverts le lundi ?","keywords":["lundi","ferme","fermeture","repos"],"a":"Nous sommes fermés le lundi. Les autres jours, les horaires figurent ci-dessus."},{"id":"sansgluten","q":"Proposez-vous du pain sans gluten ?","keywords":["gluten","allergie","intolerance"],"a":"Nous n'avons pas de pain sans gluten : le fournil travaille la farine de blé et la contamination croisée est inévitable."}],"notes":"Commerce fictif de démonstration. Toutes les informations sont inventées."},"locale":{"locale":"fr","language":"Français","direction":"ltr","greeting":"Bonjour et bienvenue chez {name}. Posez-moi vos questions sur nos services, nos horaires ou nos coordonnées.","greetingGeneric":"Bonjour. Posez-moi vos questions sur nos services, nos horaires ou nos coordonnées.","unknown":"Je n'ai pas cette information et je préfère ne pas l'inventer. L'équipe pourra vous répondre :","disambiguate":"Plusieurs réponses peuvent correspondre. Laquelle vous intéresse ?","listSeparator":", ","actions":{"call":"Appeler","whatsapp":"WhatsApp","email":"E-mail","contact":"Nous contacter","website":"Voir le site"},"intents":{"hours":["horaires","heures","ouvert","ouverture","fermeture","quelle heure","aujourd hui"],"address":["adresse","ou etes vous","situes","acces","venir","stationnement"],"phone":["telephone","numero","appeler","portable"],"email":["email","e-mail","courriel","ecrire"],"website":["site","page","web","internet"],"services":["services","que faites vous","prestations","proposez"],"pricing":["prix","tarif","tarifs","combien","cout","devis"]},"intentLabels":{"hours":"Horaires","address":"Où nous trouver","phone":"Téléphone","email":"E-mail","website":"Site web","services":"Nos prestations","pricing":"Tarifs"},"answers":{"hours":"Nos horaires sont {hours}.","address":"Vous nous trouverez au {address}.","phone":"Vous pouvez nous appeler au {phone}.","email":"Vous pouvez nous écrire à {email}.","website":"Notre site est {website}.","services":"Nous proposons {services}.","pricing":"{pricing}"},"days":{"mon":"Lun","tue":"Mar","wed":"Mer","thu":"Jeu","fri":"Ven","sat":"Sam","sun":"Dim"},"ui":{"launcher":"Chat","launcherOpen":"Ouvrir le chat","launcherClose":"Fermer le chat","title":"Une question ?","placeholder":"Écrivez votre question…","send":"Envoyer","suggestionsLabel":"Questions fréquentes","transcriptLabel":"Conversation","draftNotice":"Le texte de cette page est une ébauche automatique en attente de relecture par un locuteur natif."},"sales":{"headline":"Un chat pour votre site qui répond à partir de vos propres informations.","subhead":"Une seule ligne de code. Sans abonnement mensuel, sans abonnement IA et sans envoi de données hors de votre page. Il répond ce que vous avez saisi et le dit clairement quand il ne sait pas.","bullets":["Répond sur vos horaires, vos prestations, vos tarifs et vos coordonnées.","Dit « je ne sais pas » et transmet le visiteur plutôt que d'inventer.","Fonctionne dans le navigateur du visiteur : rien à payer par conversation."],"standardName":"Standard","standardBlurb":"Vous saisissez vos informations et recevez le code prêt à coller sur votre site.","standardCta":"Prendre la version Standard","customName":"Sur mesure","customBlurb":"Envoyez votre site ou vos informations et recevez le chat déjà rempli, aux couleurs et au ton de votre activité.","customCta":"Prendre la version sur mesure","truthNote":"Il s'agit d'un bot de questions fréquentes déterministe, pas d'un agent d'IA générative. Il ne répète que ce que vous lui fournissez.","demoTitle":"Essayez","demoHint":"Voici le vrai chat, en fonctionnement sur cette page avec l'exemple ci-dessous.","notYetForSale":"pas encore en vente : il n'y a pas encore d'endroit où le livrer"},"translated":{"status":"machine-drafted","ui":"machine-drafted","sales":"machine-drafted","note":"Drafted by AION and not yet checked by a native speaker."}},"theme":{"id":"minimal","name":"Minimal","description":"Borderless, typographic, almost no chrome. For clinics, studios and sites that already have a strong design.","tokens":{"accent":"#1f2937","accentText":"#ffffff","surface":"#fdfdfc","surfaceAlt":"#f2f2f0","text":"#111827","textMuted":"#6b7280","border":"#e5e5e2","radius":"6px","radiusLauncher":"6px","shadow":"0 1px 2px rgba(17, 24, 39, 0.08), 0 8px 24px rgba(17, 24, 39, 0.06)","font":"Georgia, 'Times New Roman', 'Noto Serif', serif","bubbleBot":"#f2f2f0","bubbleUser":"#1f2937","bubbleUserText":"#ffffff"},"dark":{"surface":"#111312","surfaceAlt":"#1a1d1c","text":"#f3f4f2","textMuted":"#9ca3a0","border":"#262a29","bubbleBot":"#1a1d1c"}}};</script>
+  <script src="../chat-bot.js"></script>
+</body>
+</html>

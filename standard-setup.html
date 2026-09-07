@@ -1,0 +1,160 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="robots" content="noindex,nofollow">
+  <title>Website Chat Bot — Standard setup</title>
+  <style>
+    :root { color-scheme: light dark; font-family: system-ui, sans-serif; }
+    body { margin: 0; }
+    main { max-width: 760px; margin: 0 auto; padding: 32px 20px 64px; }
+    label { display: block; margin: 14px 0 4px; font-weight: 600; }
+    input, textarea { width: 100%; box-sizing: border-box; padding: 10px; font: inherit; }
+    textarea { min-height: 86px; }
+    button, .download { display: inline-block; margin-top: 16px; padding: 10px 14px; font: inherit; text-decoration: none; cursor: pointer; }
+    pre { white-space: pre-wrap; overflow-wrap: anywhere; padding: 14px; border: 1px solid currentColor; border-radius: 8px; }
+    .note { opacity: .8; }
+    .hidden { display: none; }
+  </style>
+</head>
+<body>
+<main>
+  <h1>Website Chat Bot — Standard setup</h1>
+  <p>Fill in facts you are comfortable publishing on your website. This tool builds a deterministic FAQ-bot configuration in your browser. It does not send these details anywhere.</p>
+  <p class="note">This delivery page is prepared for post-checkout use. It does not accept payment itself.</p>
+
+  <form id="builder">
+    <label for="name">Business name *</label>
+    <input id="name" required placeholder="Example Plumbing">
+
+    <label for="services">Services — one per line</label>
+    <textarea id="services" placeholder="Emergency leak repair&#10;Boiler servicing"></textarea>
+
+    <label for="hours">Opening hours</label>
+    <input id="hours" placeholder="Mon–Fri 8am–6pm; Sat 9am–1pm">
+
+    <label for="phone">Phone</label>
+    <input id="phone" placeholder="+1 555 0100">
+
+    <label for="email">Email</label>
+    <input id="email" type="email" placeholder="hello@example.com">
+
+    <label for="website">Website</label>
+    <input id="website" type="url" placeholder="https://example.com">
+
+    <label for="pricing">Pricing note</label>
+    <input id="pricing" placeholder="Call-outs start at $89; quote provided before work begins.">
+
+    <label for="faqs">FAQs — one per line as Question | Answer</label>
+    <textarea id="faqs" placeholder="Do you do emergency call-outs? | Yes, during opening hours.&#10;Which areas do you cover? | Riverton and nearby towns."></textarea>
+
+    <button id="generate" type="submit">Build my config</button>
+  </form>
+
+  <section id="result" class="hidden" aria-live="polite">
+    <h2>Your files</h2>
+    <ol>
+      <li>Download <a class="download" href="chat-bot.js" download="chat-bot.js">chat-bot.js</a>.</li>
+      <li>Download the generated <a class="download" id="download-config" href="#" download="website-chat-bot-config.js">website-chat-bot-config.js</a>.</li>
+      <li>Upload both files to your site, then paste this where you want the bot available:</li>
+    </ol>
+    <pre id="embed"></pre>
+    <p class="note">The bot only answers from the facts in your config. If it cannot match a question safely, it says it does not know and points the visitor to your contact details.</p>
+  </section>
+</main>
+<script>
+const locale = {
+  locale: "en",
+  language: "English",
+  direction: "ltr",
+  greeting: "Hi — welcome to {name}. Ask me about our services, hours or how to reach us.",
+  greetingGeneric: "Hi — ask me about our services, hours or how to reach us.",
+  unknown: "I don't have that in my notes, so I'd rather not guess. The team can answer it properly:",
+  disambiguate: "I found more than one thing that could match. Which did you mean?",
+  listSeparator: ", ",
+  actions: { call: "Call", whatsapp: "WhatsApp", email: "Email", contact: "Contact us", website: "Visit website" },
+  intents: {
+    hours: ["hours","opening hours","open","close","closing","when are you open","what time","schedule","today"],
+    address: ["address","where are you","location","directions","find you","parking"],
+    phone: ["phone","phone number","call you","telephone","number"],
+    email: ["email","email address","mail you","write to you"],
+    website: ["website","site","web page","online"],
+    services: ["services","what do you do","what do you offer","help with","do you do"],
+    pricing: ["price","prices","cost","how much","quote","estimate","rate","fee"]
+  },
+  intentLabels: { hours: "Opening hours", address: "Where to find us", phone: "Phone number", email: "Email address", website: "Website", services: "What we do", pricing: "Prices" },
+  answers: { hours: "Our hours are {hours}.", address: "You can find us at {address}.", phone: "You can call us on {phone}.", email: "You can email us at {email}.", website: "Our website is {website}.", services: "We do {services}.", pricing: "{pricing}" },
+  days: { mon: "Mon", tue: "Tue", wed: "Wed", thu: "Thu", fri: "Fri", sat: "Sat", sun: "Sun" },
+  ui: { launcher: "Chat", launcherOpen: "Open chat", launcherClose: "Close chat", title: "Questions?", placeholder: "Type your question…", send: "Send", suggestionsLabel: "Common questions", transcriptLabel: "Conversation" }
+};
+
+const theme = {
+  id: "standard",
+  name: "Standard",
+  description: "Neutral website chat panel.",
+  tokens: {
+    accent: "#1f5eff", accentText: "#ffffff", surface: "#ffffff", surfaceAlt: "#f4f6fa", text: "#17191d", textMuted: "#626a76", border: "#d6dbe3", radius: "10px", radiusLauncher: "999px", shadow: "0 12px 30px rgba(0,0,0,.18)", font: "system-ui, sans-serif", bubbleBot: "#f4f6fa", bubbleUser: "#1f5eff", bubbleUserText: "#ffffff"
+  },
+  dark: { surface: "#17191d", surfaceAlt: "#252a31", text: "#f5f7fa", textMuted: "#aeb5bf", border: "#3b424c", shadow: "0 12px 30px rgba(0,0,0,.45)", bubbleBot: "#252a31", bubbleUser: "#7aa2ff", bubbleUserText: "#101217" }
+};
+
+function lines(value) {
+  return value.split(/\r?\n/).map(v => v.trim()).filter(Boolean);
+}
+
+function parseFaqs(value) {
+  return lines(value).map((line, index) => {
+    const at = line.indexOf('|');
+    if (at < 1 || at === line.length - 1) throw new Error(`FAQ line ${index + 1} must use Question | Answer`);
+    return { id: `faq-${index + 1}`, q: line.slice(0, at).trim(), a: line.slice(at + 1).trim(), keywords: [] };
+  });
+}
+
+function clean(value) { return value.trim(); }
+
+function makeConfig() {
+  const name = clean(document.getElementById('name').value);
+  if (!name) throw new Error('Business name is required.');
+  const business = {
+    id: name.toLowerCase().replace(/[^a-z0-9]+/g, '-').replace(/^-|-$/g, '') || 'business',
+    name,
+    locale: 'en',
+    theme: 'standard',
+    services: lines(document.getElementById('services').value),
+    hours: clean(document.getElementById('hours').value),
+    phone: clean(document.getElementById('phone').value),
+    email: clean(document.getElementById('email').value),
+    website: clean(document.getElementById('website').value),
+    pricing: clean(document.getElementById('pricing').value),
+    faqs: parseFaqs(document.getElementById('faqs').value)
+  };
+  Object.keys(business).forEach(key => {
+    if (business[key] === '' || (Array.isArray(business[key]) && business[key].length === 0)) delete business[key];
+  });
+  return { business, locale, theme };
+}
+
+function setDownload(config) {
+  const body = `window.WEBSITE_CHAT_BOT = ${JSON.stringify(config, null, 2)};\n`;
+  const blob = new Blob([body], { type: 'text/javascript' });
+  const link = document.getElementById('download-config');
+  if (link.dataset.objectUrl) URL.revokeObjectURL(link.dataset.objectUrl);
+  const url = URL.createObjectURL(blob);
+  link.href = url;
+  link.dataset.objectUrl = url;
+  document.getElementById('embed').textContent = '<script src="/path/to/website-chat-bot-config.js"><\/script>\n<script src="/path/to/chat-bot.js"><\/script>';
+  document.getElementById('result').classList.remove('hidden');
+}
+
+document.getElementById('builder').addEventListener('submit', event => {
+  event.preventDefault();
+  try {
+    setDownload(makeConfig());
+  } catch (error) {
+    alert(error.message || String(error));
+  }
+});
+</script>
+</body>
+</html>
