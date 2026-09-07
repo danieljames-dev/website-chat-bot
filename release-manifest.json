@@ -1,0 +1,25 @@
+{
+  "schemaVersion": 1,
+  "product": "Website Chat Bot Standard",
+  "priceUsd": 19,
+  "releaseTag": "standard-v1.0.0",
+  "assetName": "website-chat-bot-standard.zip",
+  "verifiedBuildSha256": "9f5fb490e90e819220dba924859b35708108ffcd26bad3f960ae39373db6ebf2",
+  "files": {
+    "ar/index.html": "0bada03601ae9ed7db68602adbbd8498d338f74d",
+    "chat-bot.js": "84be7812b12057f847ffc621c74605a18e87a3de",
+    "de/index.html": "da8ae618ec4d0f28a8da5c810f3cbad4eeb3343c",
+    "en/index.html": "b82c7399715a0db86abbd5043dac4ce858a2c3eb",
+    "es-419/index.html": "f387a367aa1f577d6446448aa0d994505abcfba4",
+    "fr/index.html": "8847a6e015c22dd6bd9967280596892e92180bbf",
+    "hi/index.html": "e652651d39c322f2415dce6238dcd4c8178a3552",
+    "id/index.html": "fa90eb82ade60b8ec7ce16134fa6cd4ade4a68d8",
+    "index.html": "e6f910f1ddd126cc7e9a6d8d7cc07e6a2b4cd3a2",
+    "ja/index.html": "80dc75a865d9932356099ac3d35ea2215eb14f8c",
+    "privacy.html": "4f592b682a977b873e693c99cf237d1efdfaa7fc",
+    "pt-BR/index.html": "b17c029a9fded9ad966d56a25af07089e40a3614",
+    "robots.txt": "1f53798bb4fe33c86020be7f10c44f29486fd190",
+    "standard-setup.html": "e1c13c11147e5a7951af39eec38315f219425bc0",
+    "support.html": "1277139e1d863f10d404a24c0389bff8f43a6e7f"
+  }
+}
