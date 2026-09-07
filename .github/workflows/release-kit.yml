@@ -1,0 +1,163 @@
+name: Publish verified Website Chat Bot release kit
+
+on:
+  workflow_dispatch:
+  push:
+    branches: [main]
+    paths:
+      - '.github/workflows/release-kit.yml'
+      - 'release-manifest.json'
+      - 'tools/verify-offline-kit.mjs'
+      - 'ar/index.html'
+      - 'chat-bot.js'
+      - 'de/index.html'
+      - 'en/index.html'
+      - 'es-419/index.html'
+      - 'fr/index.html'
+      - 'hi/index.html'
+      - 'id/index.html'
+      - 'index.html'
+      - 'ja/index.html'
+      - 'privacy.html'
+      - 'pt-BR/index.html'
+      - 'robots.txt'
+      - 'standard-setup.html'
+      - 'support.html'
+
+permissions:
+  contents: write
+
+concurrency:
+  group: website-chat-bot-release-kit
+  cancel-in-progress: false
+
+jobs:
+  publish-and-verify:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+
+      - uses: actions/setup-node@v4
+        with:
+          node-version: '22'
+
+      - name: Verify exact buyer-file identities
+        shell: bash
+        run: |
+          set -euo pipefail
+          node <<'NODE'
+          const fs = require('fs');
+          const cp = require('child_process');
+          const manifest = JSON.parse(fs.readFileSync('release-manifest.json', 'utf8'));
+          for (const [file, expected] of Object.entries(manifest.files)) {
+            if (!fs.existsSync(file)) throw new Error(`missing verified file: ${file}`);
+            const actual = cp.execFileSync('git', ['hash-object', file], { encoding: 'utf8' }).trim();
+            if (actual !== expected) throw new Error(`verified file identity mismatch: ${file} expected=${expected} actual=${actual}`);
+          }
+          console.log(JSON.stringify({ status: 'PASS', verifiedFileCount: Object.keys(manifest.files).length }));
+          NODE
+
+      - name: Build customer download kit
+        shell: bash
+        run: |
+          set -euo pipefail
+          rm -rf "$RUNNER_TEMP/release-kit" "$RUNNER_TEMP/release-out"
+          mkdir -p "$RUNNER_TEMP/release-kit" "$RUNNER_TEMP/release-out"
+          node <<'NODE'
+          const fs = require('fs');
+          const path = require('path');
+          const root = process.env.RUNNER_TEMP + '/release-kit';
+          const manifest = JSON.parse(fs.readFileSync('release-manifest.json', 'utf8'));
+          for (const file of Object.keys(manifest.files)) {
+            const dest = path.join(root, file);
+            fs.mkdirSync(path.dirname(dest), { recursive: true });
+            fs.copyFileSync(file, dest);
+          }
+          NODE
+          cat > "$RUNNER_TEMP/release-kit/README.txt" <<'EOF'
+          WEBSITE CHAT BOT STANDARD
+          =========================
+
+          1. Unzip this folder.
+          2. Open standard-setup.html in a modern browser.
+          3. Enter only the business facts you want the bot to use.
+          4. Click Build my config, then download website-chat-bot-config.js.
+          5. Upload website-chat-bot-config.js and chat-bot.js to your website.
+          6. Paste the two-script installation snippet shown by the setup tool.
+
+          The setup tool runs locally in your browser and does not submit the details you enter to a server.
+
+          Website Chat Bot Standard is a deterministic FAQ bot. It answers from the facts you supply and says it does not know when it cannot match a question safely.
+
+          Support: +1 352-936-8152
+          See support.html and privacy.html for the current support, delivery, guarantee and privacy terms.
+          EOF
+          (cd "$RUNNER_TEMP/release-kit" && zip -qr "$RUNNER_TEMP/release-out/website-chat-bot-standard.zip" .)
+          sha256sum "$RUNNER_TEMP/release-out/website-chat-bot-standard.zip" | tee "$RUNNER_TEMP/release-out/website-chat-bot-standard.zip.sha256"
+
+      - name: Install Chromium verifier
+        shell: bash
+        run: |
+          set -euo pipefail
+          npm install --no-save playwright@1.55.0
+          npx playwright install --with-deps chromium
+
+      - name: Verify the exact local customer kit in Chromium
+        run: node tools/verify-offline-kit.mjs "$RUNNER_TEMP/release-kit"
+
+      - name: Publish or refresh versioned release
+        shell: bash
+        env:
+          GH_TOKEN: ${{ github.token }}
+        run: |
+          set -euo pipefail
+          TAG="standard-v1.0.0"
+          ASSET="$RUNNER_TEMP/release-out/website-chat-bot-standard.zip"
+          cat > "$RUNNER_TEMP/release-notes.md" <<'EOF'
+          Website Chat Bot Standard — US$19 one-time digital product.
+
+          This is the verified self-serve delivery kit. Download the ZIP, extract it, then open `standard-setup.html` in your browser. The setup tool generates your business configuration locally; the supplied widget answers only from the facts you provide.
+
+          Support: +1 352-936-8152
+
+          14-day functionality guarantee: if the supplied product does not work as described, contact support within 14 days. We will first help get it working; if we cannot resolve the problem, the purchase price will be refunded. This does not promise business-performance outcomes or custom development under the Standard tier.
+          EOF
+          if gh release view "$TAG" >/dev/null 2>&1; then
+            gh release upload "$TAG" "$ASSET" --clobber
+            gh release edit "$TAG" --title "Website Chat Bot Standard v1.0.0" --notes-file "$RUNNER_TEMP/release-notes.md"
+          else
+            gh release create "$TAG" "$ASSET" --target "$GITHUB_SHA" --title "Website Chat Bot Standard v1.0.0" --notes-file "$RUNNER_TEMP/release-notes.md"
+          fi
+
+      - name: Verify anonymous public release and downloaded bytes
+        shell: bash
+        run: |
+          set -euo pipefail
+          RELEASE_API="https://api.github.com/repos/danieljames-dev/website-chat-bot/releases/tags/standard-v1.0.0"
+          for attempt in 1 2 3 4 5; do
+            if curl -fsSL "$RELEASE_API" -o "$RUNNER_TEMP/public-release.json"; then break; fi
+            sleep $((attempt * 2))
+          done
+          test -s "$RUNNER_TEMP/public-release.json"
+          ASSET_URL="$(node -e "const r=require(process.argv[1]); const a=r.assets.find(x=>x.name==='website-chat-bot-standard.zip'); if(!a) process.exit(2); process.stdout.write(a.browser_download_url)" "$RUNNER_TEMP/public-release.json")"
+          RELEASE_URL="$(node -e "const r=require(process.argv[1]); process.stdout.write(r.html_url)" "$RUNNER_TEMP/public-release.json")"
+          curl -fsSL -L "$ASSET_URL" -o "$RUNNER_TEMP/public-kit.zip"
+          rm -rf "$RUNNER_TEMP/public-kit"
+          mkdir -p "$RUNNER_TEMP/public-kit"
+          unzip -q "$RUNNER_TEMP/public-kit.zip" -d "$RUNNER_TEMP/public-kit"
+          PUBLIC_KIT="$RUNNER_TEMP/public-kit" node <<'NODE'
+          const fs = require('fs');
+          const path = require('path');
+          const cp = require('child_process');
+          const manifest = JSON.parse(fs.readFileSync('release-manifest.json', 'utf8'));
+          const root = process.env.PUBLIC_KIT;
+          for (const [file, expected] of Object.entries(manifest.files)) {
+            const delivered = path.join(root, file);
+            if (!fs.existsSync(delivered)) throw new Error(`anonymous release missing file: ${file}`);
+            const actual = cp.execFileSync('git', ['hash-object', delivered], { encoding: 'utf8' }).trim();
+            if (actual !== expected) throw new Error(`anonymous release mismatch: ${file} expected=${expected} actual=${actual}`);
+          }
+          console.log(JSON.stringify({ status: 'PASS', anonymousVerifiedFileCount: Object.keys(manifest.files).length }));
+          NODE
+          node tools/verify-offline-kit.mjs "$RUNNER_TEMP/public-kit"
+          node -e "const r=require(process.argv[1]); const a=r.assets.find(x=>x.name==='website-chat-bot-standard.zip'); console.log(JSON.stringify({status:'PASS',publicRelease:true,releaseUrl:r.html_url,assetUrl:a.browser_download_url,assetBytes:a.size,tag:r.tag_name,draft:r.draft,prerelease:r.prerelease}))" "$RUNNER_TEMP/public-release.json"
